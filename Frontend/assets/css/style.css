@@ -627,4 +627,47 @@
 
 
 
+/*-----------------------------------*\
+  #SERVICE
+\*-----------------------------------*/
+
+.service-list {
+    padding-block: 60px 30px;
+    padding-inline: 25px;
+    display: grid;
+   
+    gap: 50px;
+    border-radius: var(--radius-12);
+    margin-block-start: -60px;
+    background-color: var(--white);
+    box-shadow: var(--shadow-1);
+  }
+  
+  .service-card { text-align: center; }
+  
+  .service-card .card-icon,
+  .btn-circle {
+    max-width: max-content;
+    margin-inline: auto;
+  }
+  
+  .service-card .card-icon { margin-block-end: 25px; }
+  
+  .service-card .card-text { margin-block: 20px 15px; }
+  
+  .service-card .btn-circle {
+    color: var(--verdigris);
+    font-size: 2rem;
+    padding: 18px;
+    border-radius: var(--radius-circle);
+    box-shadow: var(--shadow-2);
+    transition: var(--transition-1);
+  }
+  
+  .service-card .btn-circle:is(:hover, :focus-visible) {
+    background-color: var(--verdigris);
+    color: var(--white);
+  }
+  
+
   
