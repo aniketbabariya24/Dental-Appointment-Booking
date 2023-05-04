@@ -13,6 +13,8 @@ const { logsData } = require("./middlewares/log.middleware");
 const { authentication } = require("./middlewares/authentication");
 const { userRouter } = require("./routes/user.route");
 const { adminRouter } = require("./routes/admin.router");
+const { feedbackRouter } = require("./routes/feedbackForm.route");
+
 
 
 // --------------->>>>>>>> Middlewares <<<<<<<<-------------------
@@ -33,6 +35,8 @@ app.get("/", (req, res) =>
 app.use(logsData);
 app.use("/users", userRouter);
 app.use("/admin", adminRouter);
+app.use("/feedback", feedbackRouter);
+
 
 
 // --------------->>>>>>>> Server Running <<<<<<<<-------------------
