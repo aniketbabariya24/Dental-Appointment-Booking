@@ -670,4 +670,56 @@
   }
   
 
+
+/*-----------------------------------*\
+  #ABOUT
+\*-----------------------------------*/
+
+.about { padding-block-end: 0; }
+
+.about .container {
+  display: grid;
+  gap: 20px;
+}
+
+.about .section-text { margin-block: 20px 35px; }
+
+.tab-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 15px;
+}
+
+.tab-btn {
+  background-color: var(--alice-blue);
+  color: var(--midnight-green);
+  padding: 7px 30px;
+  border-radius: var(--radius-6);
+  font-weight: var(--fw-700);
+}
+
+.tab-btn.active {
+  background-color: var(--verdigris);
+  color: var(--white);
+}
+
+.tab-text {
+  color: var(--midnight-green);
+  margin-block: 35px;
+}
+
+.about-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-block-end: 10px;
+}
+
+.about-item ion-icon {
+  color: var(--verdigris);
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+
   
