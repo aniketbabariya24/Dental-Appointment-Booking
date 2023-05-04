@@ -1,0 +1,8 @@
+
+1) Register User: [POST] http://localhost:8080/users/register
+
+2) Login User: [POST] http://localhost:8080/users/login
+
+3) LogOut User: [GET] http://localhost:8080/users/logout
+
+4) Get All Users: [GET] http://localhost:8080/users/
