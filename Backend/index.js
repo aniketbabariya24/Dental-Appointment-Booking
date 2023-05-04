@@ -14,7 +14,6 @@ const {userRouter}= require('./routes/user.route')
 app.use(express.json());
 
 
-// app.use(authenicate)
 
 app.use("/users", userRouter);
 
