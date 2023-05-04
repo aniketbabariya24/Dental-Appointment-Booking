@@ -2,7 +2,7 @@
 const { logModel } = require("../models/logModel");
 
 
-const LogsData = async (req,res,next) => {
+const logsData = async (req,res,next) => {
     try {
         const data = new logModel({
             DateandTime: `${new Date()}`,
@@ -19,4 +19,4 @@ const LogsData = async (req,res,next) => {
     }
 }
 
-module.exports = { LogsData }
+module.exports = { logsData }
