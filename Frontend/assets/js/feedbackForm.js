@@ -1,21 +1,21 @@
-// ------------------- API's ----------------------
+// ------------------->>>>> API's <<<<<----------------------
 
-const BaseUrl = "https://hairsalonbackend-production-1188.up.railway.app";
-const Default = `${BaseUrl}/feedback`;
-const PostDataCheck = `${Default}/forms`;
+const BaseUrl       = "https://hairsalonbackend-production-1188.up.railway.app";
+const Default       = `${BaseUrl}/feedback`;
+const PostDataCheck = `${Default}/form`;
 
 const forms = document.querySelector("form");
 
 const data = () => {
-  const Name = document.querySelector(".name");
-  const Email = document.querySelector(".email");
-  const Phone = document.querySelector(".phone");
+  const Name    = document.querySelector(".name");
+  const Email   = document.querySelector(".email");
+  const Phone   = document.querySelector(".phone");
   const Message = document.querySelector(".message");
 
   const obj = {
-    name: Name.value,
-    email: Email.value,
-    phone: Phone.value,
+    name   : Name.value,
+    email  : Email.value,
+    phone  : Phone.value,
     message: Message.value,
   };
 
