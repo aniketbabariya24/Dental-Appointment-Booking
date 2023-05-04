@@ -723,3 +723,28 @@
 
 
   
+/*-----------------------------------*\
+  #LISTING
+\*-----------------------------------*/
+
+.listing { background-color: var(--alice-blue); }
+
+.listing-card {
+  padding: 25px 16px;
+  display: flex;
+  gap: 20px;
+  border: 2px solid var(--middle-blue-green_40);
+  border-radius: var(--radius-12);
+  transition: var(--transition-1);
+}
+
+.listing-card:is(:hover, :focus-visible) { border-color: var(--verdigris); }
+
+.listing-card .card-title {
+  margin-block-end: 5px;
+  font-family: var(--ff-oswald);
+}
+
+.listing-card .card-text { color: var(--midnight-green); }
+
+
