@@ -7,8 +7,3 @@
 
 4) Get All Users: [GET] http://localhost:8080/users/
 
-
-mongoURL= "mongodb+srv://dentcare:dentcare@cluster0.ey19cck.mongodb.net/dentcare"
-
-NORMALKEY= normaldental
-REFRESHKEY= refreshdental
