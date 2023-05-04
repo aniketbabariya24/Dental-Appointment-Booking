@@ -8,14 +8,15 @@ require('dotenv').config();
 
 const {connection}= require('./configs/db');
 const {authenicate}= require('./middlewares/authentication')
-
-const {userRouter}= require('./routes/user.route')
+const {userRouter}= require('./routes/user.route');
+const { AdminRouter } = require('./routes/admin.router');
 
 app.use(express.json());
 
 
 
 app.use("/users", userRouter);
+app.use("/admin", AdminRouter);
 
 app.listen(8080, async()=>{
  try {
