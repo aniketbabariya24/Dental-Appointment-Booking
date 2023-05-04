@@ -561,4 +561,70 @@
 }
 
 
+/*-----------------------------------*\
+  #HERO
+\*-----------------------------------*/
+
+.hero-banner { display: none; }
+
+.hero {
+  background-color: var(--midnight-green);
+  --section-padding: 200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero-subtitle {
+  color: var(--white);
+  font-weight: var(--fw-500);
+  padding-inline-start: 80px;
+}
+
+.hero-subtitle::before {
+  top: 50%;
+  left: 0;
+  width: 60px;
+  height: 1px;
+  background-color: var(--white);
+}
+
+.hero-title { margin-block: 20px 30px; }
+
+.hero-card {
+  background-color: var(--white);
+  border-radius: var(--radius-12);
+  padding: 20px;
+}
+
+.hero-card .card-text {
+  color: var(--eerie-black);
+  border-block-end: 1px solid var(--midnight-green_a25);
+  padding-block-end: 12px;
+  margin-block-end: 14px;
+}
+
+.hero-card .input-wrapper { position: relative; }
+
+.hero-card .input-field {
+  color: var(--eerie-black);
+  border-block-end: 1px solid var(--gainsboro);
+  padding-inline-end: 18px;
+}
+
+.hero-card .input-wrapper ion-icon {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  color: var(--verdigris);
+}
+
+.hero-card .btn {
+  width: 100%;
+  justify-content: center;
+  margin-block-start: 16px;
+}
+
+
+
   
