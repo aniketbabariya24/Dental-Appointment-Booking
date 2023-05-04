@@ -3,10 +3,10 @@ const express = require("express");
 // --------------->>>>>>>> Admin Controller <<<<<<<<-------------------
 const { adminLogin } = require("../controllers/admin.controller");
 
-const AdminRouter = express.Router();
+const adminRouter = express.Router();
 
 // --------->>>> POST <<<<<--------- 
 AdminRouter.post("/login",adminLogin);
 
 
-module.exports = { AdminRouter };
+module.exports = { adminRouter };
