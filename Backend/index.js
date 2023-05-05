@@ -26,7 +26,7 @@ app.use(express.json());
 // --------------->>>>>>>> Default End Point <<<<<<<<-------------------
 app.get("/", (req, res) =>
   res.send(
-    `<h1 style="text-align:Center;color:blue">Welcome in Snips & Spikes API</h1>`
+    `<h1 style="text-align:Center;color:blue">Welcome in Dent Care API</h1>`
   )
 );
 
