@@ -7,7 +7,6 @@ const serviceSchema= mongoose.Schema({
     age:Number,
     gender:String,
     doctorID:String,
-    serviceID:String,
     date:Date,
     time:String,
 },{versionKey: false});
