@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="admin.css" />
+    <title>Dent Care Admin Panel</title>
+  </head>
+  <body>
+    <div id="navbar">
+      <div>
+        <h1>Dent Care</h1>
+      </div>
+      <div>
+        <h1>Admin Panel</h1>
+      </div>
+      <div>
+        <h1>Admin Side</h1>
+      </div>
+    </div>
+
+    <div id="postform">
+      <div id="addmale">
+        <h1 style="color: #be5656">Add Services</h1>
+        <form>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" /><br />
+
+          <label for="image">Image:</label>
+          <input type="text" id="image" name="image" /><br />
+
+          <label for="price">Price:</label>
+          <input type="number" id="price" name="price" /><br />
+
+          <label for="description">Description:</label>
+          <textarea id="description" name="description"></textarea><br />
+
+          <label for="category">Category:</label>
+          <input type="text" id="category" name="category" /><br />
+
+          <label for="gender">Gender:</label>
+          <input type="text" id="gender" name="gender" /><br />
+
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
+
+      <div id="addstylists">
+        <h1 style="color: #be5656">Add Doctors</h1>
+        <form>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" /><br />
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" /><br />
+
+          <label for="salary">Salary:</label>
+          <input type="number" id="salary" name="salary" /><br />
+
+          <label for="image">Image:</label>
+          <input type="text" id="image" name="image" /><br />
+
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
+    </div>
+
+    <div id="main">
+      <div id="threedivs">
+        <div id="male">
+          <h1 id="maleget">Get all Services</h1>
+        </div>
+        <div id="stylists">
+          <h1 id="stylistsget">Get all Doctors</h1>
+        </div>
+      </div>
+      <div id="render">
+        <h1 id="men" style="display: none; color: #be5656">
+          Services for Customers
+        </h1>
+        <div id="renderServices"></div>
+        <h1 id="style" style="display: none; color: #be5656">Doctors</h1>
+        <div id="renderDoctors"></div>
+      </div>
+    </div>
+    <button id="back-to-top-button">Back to top</button>
+  </body>
+</html>
+
+<script src="admin.js"></script>
