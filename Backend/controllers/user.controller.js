@@ -1,9 +1,11 @@
-const jwt = require ("jsonwebtoken");
-const bcrypt = require ("bcrypt");
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 
 require("dotenv").config();
 
-const { UserModel } = require ("../models/user.model");
+
+const { UserModel } = require("../models/user.model");
+
 
 const signup = async (req, res) => {
     try {
@@ -13,7 +15,7 @@ const signup = async (req, res) => {
         if (isPresent.length === 0) {
             // encrypte password and register
             bcrypt.hash(password, 5, async (err, hash) => {
-                if (err) res.status(401).json({ "errow ": err.message });
+                if (err) res.status(401).json({ error: err.message });
                 else {
                     const newUser = new UserModel({
                         name,
@@ -21,77 +23,89 @@ const signup = async (req, res) => {
                         password: hash,
                     });
                     await newUser.save();
-                    res.status(200).json({ success: "user registered successfully" });
+                    res.status(200).json({
+                        success: "user registered successfully",
+                    });
                 }
             });
         } else {
-            res.status(404).json({ msg: "user already registered" });
+            res.status(404).json({ error: "user already registered" });
         }
     } catch (error) {
-        res.status(500).json({ msg: error.message });
+        res.status(500).json({ error: error.message });
     }
-}
+};
+
 
 const login = async (req, res) => {
     try {
         const { email, password } = req.body;
         const UserData = await UserModel.findOne({ email });
-        
+
         if (!UserData) {
-            res.status(404).json({ message: "user not found" });
+            return res.status(404).json({ error: "user not found" });
         }
         const hashPassword = UserData?.password;
         bcrypt.compare(password, hashPassword, (err, result) => {
             if (result) {
-                const normalToken = jwt.sign({ userId: UserData._id }, process.env.NORMALKEY, { expiresIn: "7d" })
-                const refreshToken = jwt.sign({ userId: UserData._id }, process.env.REFRESHKEY, { expiresIn: "7d" })
+                const normalToken = jwt.sign(
+                    { userId: UserData._id },
+                    process.env.NORMALKEY,
+                    { expiresIn: "7d" }
+                );
+                const refreshToken = jwt.sign(
+                    { userId: UserData._id },
+                    process.env.REFRESHKEY,
+                    { expiresIn: "7d" }
+                );
 
-                res.cookie("normalToken", normalToken, { httpOnly: true })
-                res.cookie("refreshToken", refreshToken, { httpOnly: true })
-                res.status(200).json({ "message": "Login successfully", normalToken, refreshToken,name:UserData["name"],email,userid:UserData["_id"]});
+                res.cookie("normalToken", normalToken, { httpOnly: true });
+                res.cookie("refreshToken", refreshToken, { httpOnly: true });
+                res.status(200).json({
+                    message: "Login successfully",
+                    normalToken,
+                    refreshToken,
+                    name: UserData["name"],
+                    email,
+                    userid: UserData["_id"],
+                });
+            } else {
+                res.status(401).json({ error: "error while login" });
             }
-            else {
-                res.status(401).json({ "message": "error while login" });
-            }
-        })
+        });
     } catch (error) {
-        res.status(404).json({ message: error.message });
+        res.status(404).json({ error: error.message });
     }
- 
-}
+};
+
 
 const allUsers = async (req, res) => {
     try {
-        if (req.body.access_key === process.env.ACCESSKEY ) {
-
+        if (req.body.access_key === process.env.ACCESSKEY) {
             const UserData = await UserModel.find();
             res.status(200).json({ UserData });
+        } else {
+            res.status(401).json({ error: "Access denied" });
         }
-        else {
-            res.status(401).json({ message: "Access denied" });
-        }
-        
+    } catch (error) {
+        res.status(400).json({ error: error.message });
     }
-    catch (error) {
-        res.status(400).json({ message: error.message });
-    }
-}
+};
+
 
 const getUser = async (req, res) => {
-        const _id = req.params.id;
-        try {
-            if (req.body.access_key === process.env.ACCESSKEY ) {
-                const UserData = await UserModel.findOne({_id});
-                res.status(200).json({ UserData });
-            }
-            else {
-                res.status(401).json({ message: "Access denied" });
-            } 
+    const _id = req.params.id;
+    try {
+        if (req.body.access_key === process.env.ACCESSKEY) {
+            const UserData = await UserModel.findOne({ _id });
+            res.status(200).json({ UserData });
+        } else {
+            res.status(401).json({ error: "Access denied" });
         }
-        catch (error) {
-            res.status(400).json({ message: error.message });   
-        }
-}
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+};
 //  const logout=(req,res)=>{
 //     const token= req.headers.authorization;
 //     const blackData= JSON.parse(fs.readFileSync("./blacklist.json", "utf-8"));
@@ -101,4 +115,4 @@ const getUser = async (req, res) => {
 //     res.send("LogOut Succesfully")
 // }
 
-module.exports = {signup ,login ,allUsers ,getUser}
+module.exports = { signup, login, allUsers, getUser };
