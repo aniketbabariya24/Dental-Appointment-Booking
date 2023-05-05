@@ -59,4 +59,5 @@ const deleteDoctor = async (req, res) => {
     }
 }
 
+
 module.exports = {  getDoctor, addDoctor, updateDoctor, deleteDoctor }
