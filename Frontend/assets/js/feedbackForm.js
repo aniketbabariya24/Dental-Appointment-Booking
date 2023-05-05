@@ -1,6 +1,6 @@
 // ------------------->>>>> API's <<<<<----------------------
 
-const BaseUrl       = "https://hairsalonbackend-production-1188.up.railway.app";
+const BaseUrl       = "http://localhost:8080";
 const Default       = `${BaseUrl}/feedback`;
 const PostDataCheck = `${Default}/form`;
 
@@ -30,6 +30,7 @@ forms.addEventListener("submit", (e) => {
 
 const userDatas = async (UserData) => {
   try {
+    
     const res = await fetch(PostDataCheck, {
       method: "POST",
       headers: {
@@ -38,9 +39,8 @@ const userDatas = async (UserData) => {
       body: JSON.stringify(UserData),
     });
 
-    const Response = await res.json()
-     console.log(Response);
-    if (Response.status == 200) {
+    const Response = await res.json();
+    if (Response) {
       Swal.fire({
         title: "FeedBack Created Successfully",
         width: "25%",
@@ -48,8 +48,7 @@ const userDatas = async (UserData) => {
         color: "red",
       });
     }
-  } catch (error) 
-  {
+  } catch (error){
     Swal.fire({
         icon: 'error',
         title: 'Oops...',
