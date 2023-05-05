@@ -1,4 +1,3 @@
-
 const { DoctorModel } = require("../models/doctors.model");
 
 
