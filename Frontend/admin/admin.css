@@ -1,299 +1,362 @@
+/* Body styles */
 body {
-    margin: 0;
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    overflow-x: hidden;
-    padding: 0px 0px 0px 1px;
-  }
-  #navbar {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-  
-    margin-bottom: 50px;
-    background: rgb(199, 209, 221);
-  }
-  #navbar h1 {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-  #postform {
-    margin-top: -40px;
-    padding: 40px;
-    display: flex;
-    justify-content: space-between;
-  }
-  #render {
-    width: 100%;
-    overflow-y: scroll;
-    flex: 1;
-    margin-top: 50px;
-    padding: 10px;
-  }
-  #threedivs {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 120px;
-    width: 100%;
-    margin-right: 10px;
-    margin-left: 10px;
-  }
-  /* CSS for rendering box */
-  #renderServices {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
-    padding: 20px;
-    text-align: center;
-  }
-  #renderDoctors {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
-    padding: 20px;
-    text-align: center;
-  }
-  .card {
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    margin: 10px;
-    background-color: #f0f0f0;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.2s ease-in-out;
-  }
-  .card:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  }
-  .image-container {
-    text-align: center;
-  }
-  #renderDoctors {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
-  }
-  img {
-    width: 200px;
-    height: 200px;
-  }
-  #male {
-    border: 1px solid rgb(47, 128, 194);
-    margin-bottom: 50px;
-    width: 80%;
-    text-align: center;
-    margin-right: 15px;
-  }
-  #stylists {
-    border: 1px solid rgb(47, 128, 194);
-    margin-bottom: 50px;
-    width: 80%;
-    text-align: center;
-    margin-right: 15px;
-  }
-  /* CSS at the each get box */
-  #male,
-  #stylists {
-    cursor: pointer;
-    position: relative;
-    padding: 3px 9px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    transition: all 1s;
-  }
-  #male:after,
-  #male:before,
-  #stylists:after,
-  #stylists:before {
-    content: " ";
-    width: 10px;
-    height: 10px;
-    position: absolute;
-    border: 0px solid #fff;
-    transition: all 1s;
-  }
-  #male:after,
-  #stylists:after {
-    top: -1px;
-    left: -1px;
-    border-top: 5px solid rgb(47, 128, 194);
-    border-left: 5px solid rgb(47, 128, 194);
-  }
-  #male:before,
-  #stylists:before {
-    bottom: -1px;
-    right: -1px;
-    border-bottom: 5px solid rgb(47, 128, 194);
-    border-right: 5px solid rgb(47, 128, 194);
-  }
-  #male:hover,
-  #stylists:hover {
-    border-top-right-radius: 0px;
-    border-bottom-left-radius: 0px;
-    background: rgb(232, 236, 240);
-  }
-  #male:hover:before,
-  #male:hover:after,
-  #stylists:hover:before,
-  #stylists:hover:after {
-    width: 100%;
-    height: 100%;
-  }
-  .active {
-    background: rgb(237, 241, 247);
-  }
-  #addmale,
-  #addstylists {
-    display: inline-block;
-    width: 30%;
-    margin: 1rem;
-  }
-  /* on clicking edit button, modal opens */
-  .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9999;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .modal form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  }
-  .modal label {
-    display: block;
-    margin-bottom: 10px;
-  }
-  .modal input,
-  .modal textarea {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    margin-bottom: 20px;
-  }
-  .modal button {
-    padding: 10px 20px;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
-  }
-  .modal button:hover {
-    background-color: #3e8e41;
-  }
-  .modal button:last-child {
-    background-color: #f44336;
-  }
-  .modal button:last-child:hover {
-    background-color: #da190b;
-  }
-  .edit-button,
-  .delete-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
-  }
-  .edit-button:hover,
-  .delete-button:hover {
-    background-color: #3e8e41;
-  }
-  .delete-button {
-    background-color: #f44336;
-  }
-  .delete-button:hover {
-    background-color: #da190b;
-  }
-  /* Style for the form container */
-  #postform {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  /* Style for the form headers */
-  h1 {
-    font-size: 1.5rem;
-    margin: 1rem 0;
-  }
-  /* Style for the form labels */
-  label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-  }
-  /* Style for the form input fields */
-  input[type="text"],
-  input[type="email"],
-  input[type="number"],
-  textarea {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border-radius: 0.25rem;
-    border: 1px solid #ccc;
-    font-size: 1rem;
-  }
-  /* Style for the form submit button */
-  input[type="submit"] {
-    padding: 0.5rem;
-    border-radius: 0.25rem;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-  /* Style for the form submit button when hovered */
-  input[type="submit"]:hover {
-    background-color: #0062cc;
-  }
-  /* Form css */
-  #postform form input,
-  #postform form textarea {
-    width: 90%;
-    max-width: 350px;
-  }
-  form:hover {
-    background-color: #f7f7f7;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-  }
-  #postform form:hover {
-    background-color: #f5f5f5;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    padding: 25px;
-  }
-  /* back to top button */
-  #back-to-top-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: none;
-    padding: 10px;
-    background-color: rgb(245, 238, 226);
-    color: black;
-    font-size: small;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-  }
-  #back-to-top-button:hover {
-    background-color: #555;
-  }
-  
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  overflow-x: hidden;
+  padding: 0;
+}
+/* Navbar styles */
+#navbar {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  background-color: rgb(199, 209, 221);
+  padding: 20px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+#navbar h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+/* Form styles */
+#postform {
+  margin-top: -40px;
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+/* Render styles */
+/* #render {
+  width: 90%;
+  overflow-y: scroll;
+  flex: 1;
+  margin-top: 50px;
+  padding: 20px;
+} */
+
+/* Three divs styles */
+#threedivs {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 120px;
+  width: 100%;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+/* Rendering box styles */
+#renderServices,
+#renderDoctors {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  padding: 20px;
+  text-align: center;
+}
+.card img {
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease-in-out;
+}
+.card:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+.image-container {
+  text-align: center;
+  /* width: 10%; */
+}
+/* Male and Stylists styles */
+#male,
+#stylists {
+  cursor: pointer;
+  position: relative;
+  padding: 3px 9px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  transition: all 1s;
+  border: 1px solid rgb(47, 128, 194);
+  width: 80%;
+  text-align: center;
+  margin-right: 15px;
+}
+#male:before,
+#male:after,
+#stylists:before,
+#stylists:after {
+  content: " ";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  border: 0px solid #fff;
+  transition: all 1s;
+}
+#male:before,
+#stylists:before {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 5px solid rgb(47, 128, 194);
+  border-right: 5px solid rgb(47, 128, 194);
+}
+/* Make the male and stylist buttons stand out more */
+#male:hover,
+#stylists:hover {
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  background: linear-gradient(45deg, #f9d423, #ff4e50);
+  transition: 0.5s;
+}
+/* Increase the size of the plus icon when hovering over the buttons */
+#male:hover:before,
+#male:hover:after,
+#stylists:hover:before,
+#stylists:hover:after {
+  width: 120%;
+  height: 120%;
+  transition: all 0.5s ease-in-out;
+}
+/* Add a shadow to the active button */
+.active {
+  background: #ff4e50;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s ease-in-out;
+}
+/* Make the add male and add stylist buttons look more like buttons */
+#addmale,
+#addstylists {
+  display: inline-block;
+  width: 30%;
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  background: #ff4e50;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: 0.5s;
+}
+#addmale:hover,
+#addstylists:hover {
+  background: #f9d423;
+}
+/* Style the edit and delete buttons */
+.edit-button,
+.delete-button {
+  display: inline-block;
+  padding: 0.5rem;
+  border-radius: 5px;
+  background: #fff;
+  color: #ff4e50;
+  border: 2px solid #ff4e50;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.5s, color 0.5s;
+}
+.edit-button:hover {
+  background: #ff4e50;
+  color: #fff;
+}
+.delete-button:hover {
+  background: #ff4e50;
+  color: #fff;
+}
+/* Style the form container */
+#postform {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+/* Style the form headers */
+h1 {
+  font-size: 2rem;
+  margin: 2rem 0;
+  text-align: center;
+}
+/* Style the form labels */
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+/* Style the form input fields */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+/* Style the form submit button */
+input[type="submit"] {
+  padding: 0.5rem;
+  border-radius: 5px;
+  background-color: #ff4e50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: 0.5s;
+}
+/* Style the form submit button when hovered */
+input[type="submit"]:hover {
+  background-color: #f9d423;
+}
+/* Form CSS */
+#postform form input,
+#postform form textarea {
+  width: 90%;
+  max-width: 350px;
+}
+/* form:hover {
+  background-color: #f7f7f7;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+} */
+
+/* #postform form:hover {
+  background-color: #f5f5f5;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  padding: 25px;
+} */
+
+/* Back to top button */
+#back-to-top-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  padding: 10px;
+  background-color: rgb(245, 238, 226);
+  color: black;
+  font-size: small;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+#back-to-top-button:hover {
+  background-color: #555;
+  color: #fff;
+  transition: background-color 0.3s ease-in-out;
+}
+/* Animation to the back to top button */
+#back-to-top-button:hover {
+  transform: translateY(-2px);
+}
+/* visual style to the form elements */
+input[type="text"],
+input[type="email"],
+textarea {
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #f5f5f5;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+input[type="submit"] {
+  background-color: #555;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+input[type="submit"]:hover {
+  background-color: #333;
+}
+/* Make stand out more */
+a {
+  color: #555;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+a:hover {
+  color: #333;
+}
+/* on clicking edit button, modal opens */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 80%;
+}
+.modal label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #444;
+  font-size: 16px;
+}
+.modal input,
+.modal textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #444;
+  background-color: #f7f7f7;
+}
+.modal button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+.modal button:hover {
+  background-color: #3e8e41;
+}
+.modal button:last-child {
+  background-color: #f44336;
+}
+.modal button:last-child:hover {
+  background-color: #da190b;
+}
+.modal h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #444;
+  text-align: center;
+}
