@@ -50,9 +50,15 @@ const login = async (req, res) => {
         bcrypt.compare(password, hashPassword, (err, result) => {
             if (result) {
                 // send otp
-                const otp = Math.round((Math.random() * 9999))
+                const otp = Math.floor(Math.random() * 10000).toString().padStart(4, "0");
                 console.log(otp);
-                sendEmail({email: email,subject:"Login OTP",body:`OTP is ${otp}` })
+
+                sendEmail({
+                email: email,
+                subject: "Login OTP",
+                body: `Your OTP is ${otp}`,
+                });
+
                 
                 // generate tokens 
                 const Normal_Token = jwt.sign({ userId: UserData._id }, process.env.NORMALKEY, { expiresIn: "7d" })
