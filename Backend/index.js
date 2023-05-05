@@ -10,10 +10,13 @@ require("dotenv").config();
 // --------------->>>>>>>> Location of Routes & Middlewares <<<<<<<<-------------------
 const { dbconnetion } = require("./configs/db");
 const { logsData } = require("./middlewares/log.middleware");
-const { authentication } = require("./middlewares/authentication");
+const { authenticate } = require("./middlewares/authentication");
 const { userRouter } = require("./routes/user.route");
 const { adminRouter } = require("./routes/admin.router");
+const { GntRouter } = require("./routes/generateNewToken.route");
+const { LogoutRouter } = require("./routes/logout.route");
 const { feedbackRouter } = require("./routes/feedbackForm.route");
+
 
 
 
@@ -35,6 +38,10 @@ app.get("/", (req, res) =>
 app.use(logsData);
 app.use("/users", userRouter);
 app.use("/admin", adminRouter);
+
+app.use(authenticate);
+app.use("/newtoken", GntRouter);
+app.use("/logout", LogoutRouter);
 app.use("/feedback", feedbackRouter);
 
 

@@ -1,27 +1,30 @@
-const jwt= require('jsonwebtoken');
-require('dotenv').config();
-const fs= require('fs');
+const jwt = require("jsonwebtoken");
+const fs = require("fs");
 
-const authentication= (req,res,next)=>{
+require("dotenv").config();
 
-    const token= req.headers.authorization
+const authenticate = (req, res, next) => {
+  try {
+    const Normal_Token = req.cookies.Normal_Token || "";
 
-if(!token){
-    res.send("Login First");
-}
-const blackData= JSON.parse(fs.readFileSync("./black.json", "utf-8"));
-if(blackData.includes(blackData)){
-   return res.send("Token is in BlackList")
-}
+    // blacklisted 
+    const blacklistedToken = JSON.parse(
+      fs.readFileSync("./blacklist.json", "utf-8")
+    );
 
-    jwt.verify(token, process.env.normalToken, (err, decoded)=> {
-        if(err){
-            res.send({"message": "Log in Again ! please", "error": err.message})
-        }else{
-            next();
+    if (blacklistedToken.includes(Normal_Token)) {
+      res.status(401).json({ message: "please login again" });
+    } else {
+      jwt.verify(Normal_Token, process.env.NORMALKEY, (err, decoded) => {
+        if (err) res.status(err).json({ message: err.message });
+        else {
+          next();
         }
-      });  
+      });
+    }
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+};
 
-}
-
-module.exports={ authentication }
+module.exports = { authenticate }
