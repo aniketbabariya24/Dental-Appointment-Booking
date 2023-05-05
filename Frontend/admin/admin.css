@@ -9,10 +9,10 @@ body {
 /* Navbar styles */
 #navbar {
   display: flex;
-  width: 100%;
+  /* width: 100%; */
   justify-content: space-between;
   margin-bottom: 50px;
-  background-color: rgb(199, 209, 221);
+  background-color: #00acb1;
   padding: 20px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 }
@@ -25,6 +25,9 @@ body {
 }
 /* Form styles */
 #postform {
+  background-image: url(https://img.freepik.com/free-vector/teeth-dental-care-medical-background_1017-17395.jpg?size=626&ext=jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
   margin-top: -40px;
   padding: 40px;
   display: flex;
@@ -114,7 +117,7 @@ body {
 #stylists:hover {
   border-top-right-radius: 0px;
   border-bottom-left-radius: 0px;
-  background: linear-gradient(45deg, #f9d423, #ff4e50);
+  background: linear-gradient(45deg, #00acb1, #7fd5d8);
   transition: 0.5s;
 }
 /* Increase the size of the plus icon when hovering over the buttons */
@@ -122,13 +125,13 @@ body {
 #male:hover:after,
 #stylists:hover:before,
 #stylists:hover:after {
-  width: 120%;
-  height: 120%;
+  width: 100%;
+  height: 100%;
   transition: all 0.5s ease-in-out;
 }
 /* Add a shadow to the active button */
 .active {
-  background: #ff4e50;
+  background: #00acb1;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
   transition: all 0.5s ease-in-out;
 }
@@ -140,7 +143,8 @@ body {
   margin: 1rem;
   padding: 0.5rem;
   border-radius: 5px;
-  background: #ff4e50;
+  /* background: #ff4e50; */
+  background: #005761;
   color: #fff;
   text-align: center;
   text-decoration: none;
@@ -149,7 +153,8 @@ body {
 }
 #addmale:hover,
 #addstylists:hover {
-  background: #f9d423;
+  background: #00acb1;
+  /* #005761 */
 }
 /* Style the edit and delete buttons */
 .edit-button,
@@ -239,6 +244,7 @@ input[type="submit"]:hover {
 /* Back to top button */
 #back-to-top-button {
   position: fixed;
+  /* background-color: #00acb1; */
   bottom: 20px;
   right: 20px;
   display: none;
@@ -251,7 +257,7 @@ input[type="submit"]:hover {
   transition: background-color 0.3s ease-in-out;
 }
 #back-to-top-button:hover {
-  background-color: #555;
+  background-color: #00acb1;
   color: #fff;
   transition: background-color 0.3s ease-in-out;
 }
