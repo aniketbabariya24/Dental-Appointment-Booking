@@ -2,7 +2,7 @@ const jwt= require('jsonwebtoken');
 require('dotenv').config();
 const fs= require('fs');
 
-const authenicate= (req,res,next)=>{
+const authentication= (req,res,next)=>{
 
     const token= req.headers.authorization
 
@@ -24,4 +24,4 @@ if(blackData.includes(blackData)){
 
 }
 
-module.exports={authenicate}
+module.exports={ authentication }
