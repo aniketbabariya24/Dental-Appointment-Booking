@@ -1,9 +1,46 @@
 
+###################### USERS ######################
+
 1) Register User: [POST] http://localhost:8080/users/register
 
 2) Login User: [POST] http://localhost:8080/users/login
 
-3) LogOut User: [GET] http://localhost:8080/users/logout
+3) LogOut User: [GET] http://localhost:8080/user/logout
 
-4) Get All Users: [GET] http://localhost:8080/users/
+4) GetAll Users: [GET] http://localhost:8080/users/
+
+
+###################### DOCTORS ######################
+
+1) GetAll Doctor: [GET] http://localhost:8080/doctors/
+
+2) Add Doctor: [POST] http://localhost:8080/doctors/add
+
+3) Update Doctor: [PATCH] http://localhost:8080/doctors/update/:id
+
+4) Delete Doctor: [DELETE] http://localhost:8080/doctors/delete/:id
+
+
+###################### SERVICES ######################
+
+1) GetAll Service: [GET] http://localhost:8080/services/
+
+2) Add Service: [POST] http://localhost:8080/services/add
+
+3) Update Service: [PATCH] http://localhost:8080/services/update/:id
+
+4) Delete Service: [DELETE] http://localhost:8080/services/delete/:id
+
+
+###################### APPOINTMENTS ######################
+
+1) GetAll appointment: [GET] http://localhost:8080/appointments/
+
+2) Add appointment: [POST] http://localhost:8080/appointments/add
+
+3) Update appointment: [PATCH] http://localhost:8080/appointments/update/:id
+
+4) Delete appointment: [DELETE] http://localhost:8080/appointments/delete/:id
+
+
 

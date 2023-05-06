@@ -3,14 +3,10 @@ const mongoose= require('mongoose');
 const serviceSchema= mongoose.Schema({
     name:String,
     image:String,
-    mobile:Number,
-    age:Number,
-    gender:String,
-    doctorID:String,
-    date:Date,
-    time:String,
+    details:String,
+    fees:Number
 },{versionKey: false});
 
-const ServiceModel= mongoose.model("user", serviceSchema)
+const ServiceModel= mongoose.model("service", serviceSchema)
 
 module.exports={ServiceModel}

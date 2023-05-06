@@ -4,7 +4,7 @@ const bcrypt = require ("bcrypt");
 require("dotenv").config();
 
 const { UserModel } = require ("../models/user.model");
-
+const fs= require('fs')
 const signup = async (req, res) => {
     try {
         const { name, email, password } = req.body;
@@ -92,11 +92,12 @@ const getUser = async (req, res) => {
             res.status(400).json({ message: error.message });   
         }
 }
+
 //  const logout=(req,res)=>{
 //     const token= req.headers.authorization;
-//     const blackData= JSON.parse(fs.readFileSync("./blacklist.json", "utf-8"));
+//     const blackData= JSON.parse(fs.readFileSync("../blacklist.json", "utf-8"));
 //     blackData.push(token);
-//     fs.writeFileSync("../", JSON.stringify(blackData));
+//     fs.writeFileSync("../blacklist.json", JSON.stringify(blackData));
 //     console.log(blackData);
 //     res.send("LogOut Succesfully")
 // }

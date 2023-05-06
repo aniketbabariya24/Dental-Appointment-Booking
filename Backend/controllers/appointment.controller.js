@@ -1,9 +1,9 @@
-const { ServiceModel } = require("../models/services.model");
+const { AppointmentModel } = require("../models/appointment.model");
 
 
-const getService = async (req, res) => {
+const getAppointment = async (req, res) => {
     try {
-        const data = await ServiceModel.find()
+        const data = await AppointmentModel.find()
         res.status(200).send(data);
     } catch (error) {
         res.status(404).send({
@@ -12,13 +12,13 @@ const getService = async (req, res) => {
     }
 }
 
-const addService = async (req, res) => {
+const addAppointment = async (req, res) => {
     const payload = req.body;
     try {
-        const data = new ServiceModel(payload);
+        const data = new AppointmentModel(payload);
         await data.save();
         res.status(200).send({
-            Message: "Service added successfully",
+            Message: "Appointment added successfully",
         });
     } catch (error) {
         res.status(404).send({
@@ -27,14 +27,14 @@ const addService = async (req, res) => {
     }
 }
 
-const updateService = async (req, res) => {
+const updateAppointment = async (req, res) => {
     const ID = req.params.id;
     const payload = req.body
     console.log(ID,payload)
     try {
-        await ServiceModel.findByIdAndUpdate({ _id: ID }, payload)
+        await AppointmentModel.findByIdAndUpdate({ _id: ID }, payload)
         res.status(200).send({
-            Message: "Service successfully Updated",
+            Message: "Appointment successfully Updated",
         });
     }
     catch (error) {
@@ -44,12 +44,12 @@ const updateService = async (req, res) => {
     }
 }
 
-const deleteService = async (req, res) => {
+const deleteAppointment = async (req, res) => {
     const ID = req.params.id;
     try {
-        await ServiceModel.findByIdAndDelete({ _id: ID })
+        await AppointmentModel.findByIdAndDelete({ _id: ID })
         res.status(200).send({
-            Message: "Service successfully deleted",
+            Message: "Appointment successfully deleted",
         });
     }
     catch (error) {
@@ -59,6 +59,5 @@ const deleteService = async (req, res) => {
     }
 }
 
-module.exports = {  getService, addService, updateService, deleteService }
 
-
+module.exports = {  getAppointment, addAppointment, updateAppointment, deleteAppointment }

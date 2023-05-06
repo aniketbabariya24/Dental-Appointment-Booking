@@ -9,12 +9,12 @@ const authentication= (req,res,next)=>{
 if(!token){
     res.send("Login First");
 }
-const blackData= JSON.parse(fs.readFileSync("./black.json", "utf-8"));
+const blackData= JSON.parse(fs.readFileSync("../blacklist.json", "utf-8"));
 if(blackData.includes(blackData)){
    return res.send("Token is in BlackList")
 }
 
-    jwt.verify(token, process.env.normalToken, (err, decoded)=> {
+    jwt.verify(token, process.env.NORMALKEY, (err, decoded)=> {
         if(err){
             res.send({"message": "Log in Again ! please", "error": err.message})
         }else{
