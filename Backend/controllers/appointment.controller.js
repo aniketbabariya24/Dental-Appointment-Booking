@@ -3,7 +3,7 @@ const { AppointmentModel } = require("../models/appointment.model");
 
 const getAppointment = async (req, res) => {
     try {
-        const data = await AppointmentModel.find()
+        const data = await AppointmentModel.find().populate('doctor').populate('user').populate('service')
         res.status(200).send(data);
     } catch (error) {
         res.status(404).send({
@@ -12,20 +12,18 @@ const getAppointment = async (req, res) => {
     }
 }
 
-const addAppointment = async (req, res) => {
-    const payload = req.body;
+const addAppointment=async (req,res)=>{
+    const { date, time, doctorID, serviceID, userID} = req.body;
     try {
-        const data = new AppointmentModel(payload);
-        await data.save();
-        res.status(200).send({
-            Message: "Appointment added successfully",
-        });
+        const appointment= new AppointmentModel({date,time, doctor:doctorID, service: serviceID, user: userID});
+        await appointment.save();
+
+        res.send("Appointment Booked succesfully", appointment)
     } catch (error) {
-        res.status(404).send({
-            Message: "Bad request 404",
-        });
+        res.status(400).json({ message: error.message });
     }
 }
+
 
 const updateAppointment = async (req, res) => {
     const ID = req.params.id;

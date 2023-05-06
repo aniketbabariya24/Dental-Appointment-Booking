@@ -3,10 +3,10 @@ const bcrypt = require("bcrypt");
 
 require("dotenv").config();
 
-const { UserModel } = require("../models/user.model");
-// <<<<<<< HEAD
-const fs = require("fs");
+const { UserModel } = require ("../models/user.model");
+const {AppointmentModel}= require("../models/appointment.model")
 
+const fs= require('fs')
 const { sendEmail } = require("../services/mail");
 
 const signup = async (req, res) => {
@@ -125,4 +125,5 @@ const getUser = async (req, res) => {
     }
 };
 
-module.exports = { signup, login, getalluser, getUser };
+
+module.exports = {signup ,login ,getalluser ,getUser}
