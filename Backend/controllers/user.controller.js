@@ -4,9 +4,6 @@ const bcrypt = require("bcrypt");
 require("dotenv").config();
 
 const { UserModel } = require ("../models/user.model");
-const {AppointmentModel}= require("../models/appointment.model")
-
-const fs= require('fs')
 const { sendEmail } = require("../services/mail");
 
 const signup = async (req, res) => {
