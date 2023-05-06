@@ -4,14 +4,14 @@ const doctorSchema= mongoose.Schema({
     name:String,
     image:String,
     about:String,
-    qualification:Array,
+    qualification:String,
     experience:Number,
-    language:Array,
+    language:String,
     licenceNumber:Number,
     charges:Number,
-    timing:Array,
+    timing:String,
 },{versionKey: false});
 
-const DoctorModel= mongoose.model("user", doctorSchema)
+const DoctorModel= mongoose.model("doctor", doctorSchema)
 
 module.exports={DoctorModel}

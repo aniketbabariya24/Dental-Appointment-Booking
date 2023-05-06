@@ -4,8 +4,10 @@ const bcrypt = require ("bcrypt");
 require("dotenv").config();
 
 const { UserModel } = require ("../models/user.model");
-const { sendEmail } = require("../services/mail");
+// <<<<<<< HEAD
+const fs= require('fs')
 
+const { sendEmail } = require("../services/mail");
 
 const signup = async (req, res) => {
     try {
@@ -113,5 +115,15 @@ const getUser = async (req, res) => {
             
         }
 }
+
+
+//  const logout=(req,res)=>{
+//     const token= req.headers.authorization;
+//     const blackData= JSON.parse(fs.readFileSync("../blacklist.json", "utf-8"));
+//     blackData.push(token);
+//     fs.writeFileSync("../blacklist.json", JSON.stringify(blackData));
+//     console.log(blackData);
+//     res.send("LogOut Succesfully")
+// }
 
 module.exports = {signup ,login ,getalluser ,getUser}

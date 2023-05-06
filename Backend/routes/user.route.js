@@ -19,5 +19,8 @@ userRouter.post("/register", signup);
 userRouter.post("/login", login);
 
 
+// userRouter.get("/pp", logout);
+
+
 module.exports = { userRouter }  
 
