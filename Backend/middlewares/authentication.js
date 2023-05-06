@@ -1,11 +1,14 @@
-const jwt= require('jsonwebtoken');
-require('dotenv').config();
-const fs= require('fs');
+const jwt = require("jsonwebtoken");
+const fs = require("fs");
+const { blackListModel } = require("../models/blacklist.model");
 
-const authentication= (req,res,next)=>{
+require("dotenv").config();
 
-    const token= req.headers.authorization
+const authenticate = async (req, res, next) => {
+  try {
+    const normalToken = req.cookies.Normal_Token || "";
 
+<<<<<<< HEAD
 if(!token){
     res.send("Login First");
 }
@@ -21,7 +24,27 @@ if(blackData.includes(blackData)){
             next();
         }
       });  
+=======
+    // Check if the token is blacklisted
+    const blacklistedToken = await blackListModel.findOne({
+      tokenList: normalToken,
+    });
 
-}
+    if (blacklistedToken) {
+      return res.status(401).json({ message: "Please login again" });
+    }
+>>>>>>> 739f5c10197f56d73d5280e89b4e4515cfd9bfc4
 
-module.exports={ authentication }
+    // Verify the token
+    jwt.verify(normalToken, process.env.NORMALKEY, (err, decoded) => {
+      if (err) {
+        return res.status(401).json({ message: "Invalid token" });
+      }
+      next();
+    });
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+};
+
+module.exports = { authenticate };

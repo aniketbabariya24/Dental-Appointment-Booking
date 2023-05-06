@@ -4,7 +4,11 @@ const bcrypt = require ("bcrypt");
 require("dotenv").config();
 
 const { UserModel } = require ("../models/user.model");
+// <<<<<<< HEAD
 const fs= require('fs')
+
+const { sendEmail } = require("../services/mail");
+
 const signup = async (req, res) => {
     try {
         const { name, email, password } = req.body;
@@ -13,7 +17,7 @@ const signup = async (req, res) => {
         if (isPresent.length === 0) {
             // encrypte password and register
             bcrypt.hash(password, 5, async (err, hash) => {
-                if (err) res.status(401).json({ "errow ": err.message });
+                if (err) res.status(401).json({ "error": err.message });
                 else {
                     const newUser = new UserModel({
                         name,
@@ -40,15 +44,32 @@ const login = async (req, res) => {
         if (!UserData) {
             res.status(404).json({ message: "user not found" });
         }
+
+        // hash password form UserData(db.users)
         const hashPassword = UserData?.password;
+        
+        // compare  
         bcrypt.compare(password, hashPassword, (err, result) => {
             if (result) {
-                const normalToken = jwt.sign({ userId: UserData._id }, process.env.NORMALKEY, { expiresIn: "7d" })
-                const refreshToken = jwt.sign({ userId: UserData._id }, process.env.REFRESHKEY, { expiresIn: "7d" })
+                // send otp
+                const otp = Math.floor(Math.random() * 10000).toString().padStart(4, "0");
+                console.log(otp);
 
-                res.cookie("normalToken", normalToken, { httpOnly: true })
-                res.cookie("refreshToken", refreshToken, { httpOnly: true })
-                res.status(200).json({ "message": "Login successfully", normalToken, refreshToken,name:UserData["name"],email,userid:UserData["_id"]});
+                sendEmail({
+                email: email,
+                subject: "Login OTP",
+                body: `Your OTP is ${otp}`,
+                });
+
+                
+                // generate tokens 
+                const Normal_Token = jwt.sign({ userId: UserData._id }, process.env.NORMALKEY, { expiresIn: "7d" })
+                const Refresh_Token = jwt.sign({ userId: UserData._id }, process.env.REFRESHKEY, { expiresIn: "28d" })
+
+                // send token in cookies
+                res.cookie("Normal_Token", Normal_Token, { httpOnly: true })
+                res.cookie("Refresh_Token", Refresh_Token, { httpOnly: true })
+                res.status(200).json({ "message": "Login successfully", Normal_Token, Refresh_Token,name:UserData["name"],email,userid:UserData["_id"],otp: otp});
             }
             else {
                 res.status(401).json({ "message": "error while login" });
@@ -60,7 +81,7 @@ const login = async (req, res) => {
  
 }
 
-const allUsers = async (req, res) => {
+const getalluser = async (req, res) => {
     try {
         if (req.body.access_key === process.env.ACCESSKEY ) {
 
@@ -70,10 +91,10 @@ const allUsers = async (req, res) => {
         else {
             res.status(401).json({ message: "Access denied" });
         }
-        
     }
     catch (error) {
         res.status(400).json({ message: error.message });
+        
     }
 }
 
@@ -86,12 +107,15 @@ const getUser = async (req, res) => {
             }
             else {
                 res.status(401).json({ message: "Access denied" });
-            } 
+            }
+            
         }
         catch (error) {
-            res.status(400).json({ message: error.message });   
+            res.status(400).json({ message: error.message });
+            
         }
 }
+
 
 //  const logout=(req,res)=>{
 //     const token= req.headers.authorization;
@@ -102,4 +126,4 @@ const getUser = async (req, res) => {
 //     res.send("LogOut Succesfully")
 // }
 
-module.exports = {signup ,login ,allUsers ,getUser}
+module.exports = {signup ,login ,getalluser ,getUser}

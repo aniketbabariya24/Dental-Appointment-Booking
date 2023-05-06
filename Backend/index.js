@@ -11,13 +11,20 @@ require("dotenv").config();
 // --------------->>>>>>>> Location of Routes & Middlewares <<<<<<<<-------------------
 const { dbconnetion } = require("./configs/db");
 const { logsData } = require("./middlewares/log.middleware");
+
 // const { authentication } = require("./middlewares/authentication");
 const { userRouter } = require("./routes/user.route");
 const { adminRouter } = require("./routes/admin.router");
 const {serviceRouter}= require("./routes/service.route")
 const {appointmentRouter}= require("./routes/appointment.route")
 const {doctorRouter}= require("./routes/doctor.route")
+const { authenticate } = require("./middlewares/authentication");
+const { userRouter } = require("./routes/user.route");
+const { adminRouter } = require("./routes/admin.router");
+const { GntRouter } = require("./routes/generateNewToken.route");
+const { LogoutRouter } = require("./routes/logout.route");
 const { feedbackRouter } = require("./routes/feedbackForm.route");
+
 
 
 
@@ -30,7 +37,7 @@ app.use(express.json());
 // --------------->>>>>>>> Default End Point <<<<<<<<-------------------
 app.get("/", (req, res) =>
   res.send(
-    `<h1 style="text-align:Center;color:blue">Welcome in Snips & Spikes API</h1>`
+    `<h1 style="text-align:Center;color:blue">Welcome in Dent Care API</h1>`
   )
 );
 
@@ -42,6 +49,10 @@ app.use("/doctors", doctorRouter);
 app.use("/services", serviceRouter);
 app.use("/appointments", appointmentRouter);
 app.use("/admin", adminRouter);
+
+app.use(authenticate);
+app.use("/newtoken", GntRouter);
+app.use("/logout", LogoutRouter);
 app.use("/feedback", feedbackRouter);
 
 

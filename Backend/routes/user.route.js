@@ -1,17 +1,26 @@
 const express = require ("express");
 
-const {signup ,login ,allUsers ,getUser} = require("../controllers/user.controller");
+// --------------->>>>>>>> Male Service Controller <<<<<<<<-------------------
+const {signup ,login ,getalluser ,getUser} = require("../controllers/user.controller");
 
 const userRouter = express.Router();
 
-userRouter.get("/", allUsers);
 
+// --------->>>> GET <<<<<---------
+userRouter.get("/", getalluser);
+
+// --------->>>> GET BY ID<<<<<---------
 userRouter.get("/:id", getUser);
 
+// --------->>>> POST SIGN UP <<<<<---------
 userRouter.post("/register", signup);
 
+// --------->>>> POST <<<<<--------- 
 userRouter.post("/login", login);
+
 
 // userRouter.get("/pp", logout);
 
+
 module.exports = { userRouter }  
+
