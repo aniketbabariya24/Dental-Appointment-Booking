@@ -35,15 +35,6 @@ body {
   background-color: #fff;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 }
-/* Render styles */
-/* #render {
-  width: 90%;
-  overflow-y: scroll;
-  flex: 1;
-  margin-top: 50px;
-  padding: 20px;
-} */
-
 /* Three divs styles */
 #threedivs {
   display: flex;
@@ -104,6 +95,13 @@ body {
   position: absolute;
   border: 0px solid #fff;
   transition: all 1s;
+}
+#male:after,
+#stylists:after {
+  top: -1px;
+  left: -1px;
+  border-top: 5px solid rgb(47, 128, 194);
+  border-left: 5px solid rgb(47, 128, 194);
 }
 #male:before,
 #stylists:before {
@@ -229,18 +227,6 @@ input[type="submit"]:hover {
   width: 90%;
   max-width: 350px;
 }
-/* form:hover {
-  background-color: #f7f7f7;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-} */
-
-/* #postform form:hover {
-  background-color: #f5f5f5;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-  padding: 25px;
-} */
-
 /* Back to top button */
 #back-to-top-button {
   position: fixed;
