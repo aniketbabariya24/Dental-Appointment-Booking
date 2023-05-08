@@ -1,17 +1,20 @@
-const mongoose= require('mongoose');
+const mongoose = require("mongoose");
 
-const doctorSchema= mongoose.Schema({
-    name:String,
-    image:String,
-    about:String,
-    qualification:String,
-    experience:Number,
-    language:String,
-    licenceNumber:Number,
-    charge:Number,
-    timings:String,
-},{versionKey: false});
+const doctorSchema = mongoose.Schema(
+  {
+    name:          {type: String,required: true},
+    image:         {type: String,required: true},
+    about:         {type: String,required: true},
+    qualification: {type: String,required: true},
+    experience:    {type: Number,required: true},
+    language:      {type: String,required: true},
+    licenceNumber: {type: Number,required: true},
+    charge:        {type: Number,required: true},
+    timings:       {type: String,required: true},
+  },
+  { versionKey: false }
+);
 
-const DoctorModel= mongoose.model("doctor", doctorSchema)
+const DoctorModel = mongoose.model("doctor", doctorSchema);
 
-module.exports={DoctorModel}
+module.exports = { DoctorModel };
