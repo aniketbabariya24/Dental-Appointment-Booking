@@ -34,17 +34,8 @@
           <label for="image">Image:</label>
           <input type="text" id="image" name="image" /><br />
 
-          <label for="price">Price:</label>
-          <input type="number" id="price" name="price" /><br />
-
-          <label for="description">Description:</label>
-          <textarea id="description" name="description"></textarea><br />
-
-          <label for="category">Category:</label>
-          <input type="text" id="category" name="category" /><br />
-
-          <label for="gender">Gender:</label>
-          <input type="text" id="gender" name="gender" /><br />
+          <label for="details">Details:</label>
+          <textarea id="details" name="details"></textarea><br />
 
           <input type="submit" value="Submit" />
         </form>
@@ -56,14 +47,14 @@
           <label for="name">Name:</label>
           <input type="text" id="name" name="name" /><br />
 
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" /><br />
-
-          <label for="salary">Salary:</label>
-          <input type="number" id="salary" name="salary" /><br />
-
           <label for="image">Image:</label>
           <input type="text" id="image" name="image" /><br />
+
+          <label for="qualification">Qualification:</label>
+          <input type="text" id="qualification" name="qualification" /><br />
+
+          <label for="experience">Experience:</label>
+          <input type="number" id="experience" name="experience" /><br />
 
           <input type="submit" value="Submit" />
         </form>
@@ -72,10 +63,10 @@
 
     <div id="main">
       <div id="threedivs">
-        <div id="male">
+        <div id="getServices">
           <h1 id="maleget">Get all Services</h1>
         </div>
-        <div id="stylists">
+        <div id="getDoctors">
           <h1 id="stylistsget">Get all Doctors</h1>
         </div>
       </div>
@@ -83,9 +74,9 @@
         <h1 id="men" style="display: none; color: #be5656">
           Services for Customers
         </h1>
-        <div id="renderServices"></div>
+        <div id="services"></div>
         <h1 id="style" style="display: none; color: #be5656">Doctors</h1>
-        <div id="renderDoctors"></div>
+        <div id="doctors"></div>
       </div>
     </div>
     <button id="back-to-top-button">Back to top</button>
