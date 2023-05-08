@@ -1,7 +1,14 @@
+// ------------------- API's ----------------------
+
+const BaseUrl = "https://dent-care-backend-aa29.onrender.com";
+const Default = `${BaseUrl}/users`;
+const RegisterPostData = `${Default}/register`;
+const LoginPostData = `${Default}/login`;
+
+
 const signUpButton = document.getElementById("signUp");
 const signInButton = document.getElementById("signIn");
 const container = document.getElementById("container");
-const baseurl = "http://localhost:8080/";
 
 signUpButton.addEventListener("click", () => {
   container.classList.add("right-panel-active");
@@ -40,7 +47,7 @@ singupfrom.addEventListener("submit", (e) => {
 
 const register = async (user) => {
   try {
-    const res = await fetch(`${baseurl}users/register`, {
+    const res = await fetch(RegisterPostData, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -85,7 +92,7 @@ loginForm.addEventListener("submit", (e) => {
 
 const login = async (user) => {
   try {
-    const res = await fetch(`${baseurl}users/login`, {
+    const res = await fetch(LoginPostData, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
