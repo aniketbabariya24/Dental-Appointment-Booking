@@ -108,43 +108,7 @@
 ----
 <br>
 
-## `Services`
-<br>   
-
--  Services
-                
-        GET    -   /services
-        POST   -   /services/addService
-        PATCH  -   /services/update/:id
-        DELETE -   /services/delete/:id
-
-
-
-<br>
-
-## `Stylist`
-<br>   
-
-- Dentists 
-                
-        GET    -   /dentist 
-        POST   -   /dentist/addDentistService
-        PATCH  -   /dentist/update/:id
-        DELETE -   /dentist/delete/:id
-
-
-<br>
-
-## `Appointment`
-<br>   
-
-- Appointment 
-                
-        GET    -   /appointments/:id ==> for Perticuler user
-        GET    -   /appointments ==> For admin
-        POST   -   /appointments/add
-        PATCH  -   /appointments/update/:id
-        DELETE -   /appointments/delete/:id
+<a href="https://dent-care-backend-aa29.onrender.com/api-docs">Swagger Api's</a>
 
 # Additional 
 - we can give home services
