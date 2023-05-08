@@ -17,10 +17,16 @@ const addAppointment=async (req,res)=>{
     const { date, time, doctorID, serviceID, userID} = req.body;
     try {
 
-        sendEmail({email:userID.email,subject:`Dental Service with ${doctorID.name} on ${date} at ${time}`,body:`Dear ${userID.name},<br>
+        const appointment= new AppointmentModel({date,time, doctor:doctorID, service: serviceID, user: userID});
+        await appointment.save();
 
-        Thank you for booking an appointment with our denist. This email is to confirm that your appointment with our experienced doctor, ${doctorID.name}, has been successfully scheduled for a ${serviceID.name} on ${date} at ${time}.<br>
+        const data = await AppointmentModel.findOne({_id:appointment._id}).populate('doctor').populate('user').populate('service')
+
         
+        sendEmail({email:data.user[0].email,subject:`Your Appointment has Successfully Booked.`,body:`Dear ${data.user[0].name},<br>
+
+        Thank you for booking an appointment with our denist. This email is to confirm that your appointment with our experienced doctor, <b> ${data.doctor[0].name} </b>, has been successfully scheduled for a <b>  ${data.service[0].name} on ${date} at ${time} </b> .<br>
+
         Please make sure to arrive on time for your appointment to ensure that we can provide you with the best possible service.<br>We kindly request that you notify us at least 24 hours in advance if you need to cancel or reschedule your appointment.<br>
         
         If you have any questions or concerns, please do not hesitate to contact us at dentcare247@gmail.com.<br>
@@ -30,8 +36,6 @@ const addAppointment=async (req,res)=>{
         Best regards,<br>
         DENTCARE`});
 
-        const appointment= new AppointmentModel({date,time, doctor:doctorID, service: serviceID, user: userID});
-        await appointment.save();
 
         res.status(200).json("Appointment Booked succesfully", appointment)
     } catch (error) {
