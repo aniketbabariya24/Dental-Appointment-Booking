@@ -18,7 +18,7 @@ const addAppointment=async (req,res)=>{
         const appointment= new AppointmentModel({date,time, doctor:doctorID, service: serviceID, user: userID});
         await appointment.save();
 
-        res.send("Appointment Booked succesfully", appointment)
+        res.status(200).send("Appointment Booked succesfully", appointment)
     } catch (error) {
         res.status(400).json({ message: error.message });
     }

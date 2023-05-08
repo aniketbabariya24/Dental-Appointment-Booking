@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    transition: 0.5s;
+
+}
+
+body{
+    background-color: #c8e8e0;
+}
+
+h3{
+    color: #2e937a;
+}
+
+.row{
+    padding-top: 50px;
+    width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-content:space-between ;
+    align-items: center;
+    gap: 30px;
+}
+
+.box{
+    background-color: #fff;
+    height: 500px;
+    
+}

@@ -8,8 +8,8 @@ const doctorSchema= mongoose.Schema({
     experience:Number,
     language:String,
     licenceNumber:Number,
-    charges:Number,
-    timing:String,
+    charge:Number,
+    timings:String,
 },{versionKey: false});
 
 const DoctorModel= mongoose.model("doctor", doctorSchema)
