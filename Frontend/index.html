@@ -33,13 +33,14 @@
         <!-- 
     - custom css link
   -->
-        <link rel="stylesheet" href="./assets/css/style.css" />
+        <link rel="stylesheet" href="./styles/index.css" />
+        <link rel="stylesheet" href="./styles/feedbackForm.css" />
 
         <!-- 
     - preload images
   -->
-        <link rel="preload" as="image" href="./assets/images/hero-banner.png" />
-        <link rel="preload" as="image" href="./assets/images/hero-bg.png" />
+        <link rel="preload" as="image" href="./images/hero-banner.png" />
+        <link rel="preload" as="image" href="./images/hero-bg.png" />
     </head>
 
     <body id="top">
@@ -59,7 +60,7 @@
             <div class="container">
                 <a href="#" class="logo">
                     <img
-                        src="./assets/images/logo.png"
+                        src="./images/logo.png"
                         width="250"
                         height="46"
                         alt="Doclab home"
@@ -70,7 +71,7 @@
                     <div class="navbar-top">
                         <a href="#" class="logo">
                             <img
-                                src="./assets/images/logo.png"
+                                src="./images/logo.png"
                                 width="136"
                                 height="46"
                                 alt="Doclab home"
@@ -95,7 +96,9 @@
                         </li>
 
                         <li class="navbar-item">
-                            <a href="#" class="navbar-link title-md"
+                            <a
+                                href="./html/service.html"
+                                class="navbar-link title-md"
                                 >Services</a
                             >
                         </li>
@@ -103,18 +106,13 @@
                         <li class="navbar-item">
                             <a
                                 id="user_name"
-                                href="Pages/index.html"
+                                href="./html/login.html"
                                 class="navbar-link title-md"
                                 >Login</a
                             >
                         </li>
                         <li class="navbar-item">
-                            <a href="#" class="navbar-link title-md">Admin</a>
-                        </li>
-                        <li class="navbar-item">
-                            <a href="#" class="navbar-link title-md">
-                                Book an Appointment</a
-                            >
+                            <a href="./admin/adminLogin.html" class="navbar-link title-md">Admin</a>
                         </li>
                         <li
                             style="display: none"
@@ -122,8 +120,8 @@
                             class="navbar-item"
                         >
                             <a href="#" class="navbar-link title-md">
-                                <i class="fa-solid fa-right-from-bracket"
-                                    >LOGOUT</i
+                                <i class="fa-solid fa-right-from-bracket" style="font-size: 15px;"
+                                    >&nbsp;Logout</i
                                 >
                             </a>
                         </li>
@@ -148,7 +146,7 @@
 
                 <section
                     class="section hero"
-                    style="background-image: url('./assets/images/hero-bg.png')"
+                    style="background-image: url('./images/hero-bg.png')"
                     aria-label="home"
                 >
                     <div class="container">
@@ -198,7 +196,7 @@
 
                         <figure class="hero-banner" data-reveal="right">
                             <img
-                                src="./assets/images/hero-banner.png"
+                                src="./images/hero-banner.png"
                                 width="590"
                                 height="517"
                                 loading="eager"
@@ -219,7 +217,7 @@
                                 <div class="service-card" data-reveal="bottom">
                                     <div class="card-icon">
                                         <img
-                                            src="./assets/images/denture.png"
+                                            src="./images/denture.png"
                                             width="71"
                                             height="71"
                                             loading="lazy"
@@ -247,7 +245,7 @@
                                 <div class="service-card" data-reveal="bottom">
                                     <div class="card-icon">
                                         <img
-                                            src="./assets/images/dental-implant.png"
+                                            src="./images/dental-implant.png"
                                             width="71"
                                             height="71"
                                             loading="lazy"
@@ -274,7 +272,7 @@
                                 <div class="service-card" data-reveal="bottom">
                                     <div class="card-icon">
                                         <img
-                                            src="./assets/images/braces.png"
+                                            src="./images/braces.png"
                                             width="71"
                                             height="71"
                                             loading="lazy"
@@ -302,7 +300,7 @@
                                 <div class="service-card" data-reveal="bottom">
                                     <div class="card-icon">
                                         <img
-                                            src="./assets/images/bridge.png"
+                                            src="./images/bridge.png"
                                             width="71"
                                             height="71"
                                             loading="lazy"
@@ -331,7 +329,7 @@
                                 <div class="service-card" data-reveal="bottom">
                                     <div class="card-icon">
                                         <img
-                                            src="./assets/images/root-canal.png"
+                                            src="./images/root-canal.png"
                                             width="71"
                                             height="71"
                                             loading="lazy"
@@ -359,7 +357,7 @@
                                 <div class="service-card" data-reveal="bottom">
                                     <div class="card-icon">
                                         <img
-                                            src="./assets/images/dental-check.png"
+                                            src="./images/dental-check.png"
                                             width="71"
                                             height="71"
                                             loading="lazy"
@@ -386,7 +384,7 @@
                                 <div class="service-card" data-reveal="bottom">
                                     <div class="card-icon">
                                         <img
-                                            src="./assets/images/tooth-extraction.png"
+                                            src="./images/tooth-extraction.png"
                                             width="71"
                                             height="71"
                                             loading="lazy"
@@ -413,7 +411,7 @@
                                 <div class="service-card" data-reveal="bottom">
                                     <div class="card-icon">
                                         <img
-                                            src="./assets/images/impact.png"
+                                            src="./images/impact.png"
                                             width="71"
                                             height="71"
                                             loading="lazy"
@@ -535,7 +533,7 @@
 
                         <figure class="about-banner" data-reveal="right">
                             <img
-                                src="./assets/images/about-banner.png"
+                                src="./images/about-banner.png"
                                 loading="lazy"
                                 alt="about banner"
                                 class="w-100"
@@ -569,7 +567,7 @@
                         </div>
 
                         <div class="services_content">
-                            <img src="./assets/images/yogeshGEN.jpg" alt="" />
+                            <img src="./images/yogeshGEN.jpg" alt="" />
 
                             <h3 class="services_title">Dr. Rohan Nashikkar</h3>
                             <p class="services_description">
@@ -585,7 +583,7 @@
                         </div>
 
                         <div class="services_content">
-                            <img src="./assets/images/drRupalRana.png" alt="" />
+                            <img src="./images/drRupalRana.png" alt="" />
 
                             <h3 class="services_title">Dr. Pinal Jain</h3>
                             <p class="services_description">
@@ -624,7 +622,7 @@
                                 <div class="listing-card" data-reveal="bottom">
                                     <div class="card-icon">
                                         <img
-                                            src="./assets/images/braces.png"
+                                            src="./images/braces.png"
                                             width="71"
                                             height="71"
                                             loading="lazy"
@@ -648,7 +646,7 @@
                                 <div class="listing-card" data-reveal="bottom">
                                     <div class="card-icon">
                                         <img
-                                            src="./assets/images/tooth-extraction.png"
+                                            src="./images/tooth-extraction.png"
                                             width="71"
                                             height="71"
                                             loading="lazy"
@@ -672,7 +670,7 @@
                                 <div class="listing-card" data-reveal="bottom">
                                     <div class="card-icon">
                                         <img
-                                            src="./assets/images/dental-implant.png"
+                                            src="./images/dental-implant.png"
                                             width="71"
                                             height="71"
                                             loading="lazy"
@@ -696,7 +694,7 @@
                                 <div class="listing-card" data-reveal="bottom">
                                     <div class="card-icon">
                                         <img
-                                            src="./assets/images/impact.png"
+                                            src="./images/impact.png"
                                             width="71"
                                             height="71"
                                             loading="lazy"
@@ -720,7 +718,7 @@
                                 <div class="listing-card" data-reveal="bottom">
                                     <div class="card-icon">
                                         <img
-                                            src="./assets/images/denture.png"
+                                            src="./images/denture.png"
                                             width="71"
                                             height="71"
                                             loading="lazy"
@@ -744,7 +742,7 @@
                                 <div class="listing-card" data-reveal="bottom">
                                     <div class="card-icon">
                                         <img
-                                            src="./assets/images/dental-check.png"
+                                            src="./images/dental-check.png"
                                             width="71"
                                             height="71"
                                             loading="lazy"
@@ -936,16 +934,13 @@
                         </ul>
                     </div>
                 </section>
-            </article>
         </main>
-
         <!-- 
     - #FOOTER
   -->
 
         <footer
             class="footer"
-            style="background-image: url('./assets/images/footer-bg.png')"
         >
             <div class="container">
                 <div class="section footer-top">
@@ -1119,16 +1114,18 @@
                     <div class="footer-list" data-reveal="bottom">
                         <p class="headline-sm footer-list-title">Subscribe</p>
 
-                        <form action="" class="footer-form">
+                        <form action="./html/feedbackForm.html" class="footer-form">
                             <input
+                                id="inputEmail"
                                 type="email"
                                 name="email"
                                 placeholder="Email"
                                 class="input-field title-lg"
+                                required
                             />
 
                             <button
-                                type="submit"
+                            id="feedbackButton"
                                 class="btn has-before title-md"
                             >
                                 Subscribe
@@ -1186,19 +1183,20 @@
     - #BACK TO TOP
   -->
 
-        <a
-            href="#top"
-            class="back-top-btn"
-            aria-label="back to top"
-            data-back-top-btn
-        >
-            <ion-icon name="chevron-up"></ion-icon>
-        </a>
-
+    <a
+    href="#top"
+    class="back-top-btn"
+    aria-label="back to top"
+    data-back-top-btn
+    >
+    <ion-icon name="chevron-up"></ion-icon>
+    </a>
         <!-- 
     - custom js link
   -->
-        <script src="./assets/js/script.js"></script>
+       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="./scripts/index.js"></script>
+        <script src="./scripts/feedbackForm.js"></script>
 
         <!-- 
     - ionicon link
