@@ -1,10 +1,25 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.feedbackContainer{
+  background-color: #005761;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 #feedback-form {
     width: 280px;
     margin: 0 auto;
     background-color: #fcfcfc;
     padding: 20px 50px 40px;
-    box-shadow: 1px 4px 10px 1px #aaa;
+    box-shadow: 1px 4px 10px 1px #1c1b1b;
     font-family: sans-serif;
+    border-radius: 5px;
   }
   
   #feedback-form * {
@@ -43,6 +58,9 @@
   #feedback-form input[type=checkbox] {
     float: left;
   }
+  ::placeholder { 
+    color: rgb(6, 0, 5);
+  }
   
   #feedback-form input:not(:checked) + #feedback-phone {
     height: 0;
@@ -74,4 +92,8 @@
 
   #feedback-form button[type=submit]:hover {
     cursor: pointer;
+  }
+
+  .message{
+    height: 100px !important;
   }

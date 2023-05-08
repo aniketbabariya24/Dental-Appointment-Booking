@@ -19,7 +19,7 @@ const Toast = Swal.mixin({
 });
 Toast.fire({
     icon: "success",
-    title: "welcome to Login page",
+    title: "Welcome to Login page",
 });
 
 // signup
@@ -65,7 +65,12 @@ const register = async (user) => {
             // window.location.href = "./login.html";
         }
     } catch (error) {
-        console.log(error.message);
+        Swal.fire({
+            title: "Error!",
+            text: "Bad request 404",
+            icon: "error",
+            confirmButtonText: "Retry",
+        });
     }
 };
 
@@ -97,7 +102,7 @@ const login = async (user) => {
         let data = await res.json();
         if (data.message) {
             const { value: OTP } = await Swal.fire({
-                title: "Enter your OTP",
+                title: "Check your OTP in mailbox",
                 input: "number",
                 inputLabel: "",
                 inputPlaceholder: "Enter your OTP",
@@ -132,8 +137,8 @@ const login = async (user) => {
                         title: "Signed in successfully",
                     });
                     localStorage.setItem("userdata", JSON.stringify(data));
-                    window.location.href = "../index.html";
                     // relocate to home page
+                    window.location.href = "../index.html";
                 } else {
                     Swal.fire(`Invalid OTP: ${OTP}`);
                 }
@@ -151,7 +156,7 @@ const login = async (user) => {
     } catch (error) {
         Swal.fire({
             title: "Error!",
-            text: "Wrong credentials",
+            text: "Bad request 404",
             icon: "error",
             confirmButtonText: "Retry",
         });

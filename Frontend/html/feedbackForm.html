@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/feedbackForm.css">
+
+    <!------------------ SweetAlert JS  ------------------>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <title>FeedBack</title>
+</head>
+
+<body>
+    <div class="feedbackContainer">
+        <div id="feedback-form">
+            <h2 class="header">Feedback Form</h2>
+            <div>
+                <form>
+                    <input class="name" type="text" name="name" placeholder="Name"></input>
+                    <input class="email" type="text" name="email" placeholder="Email"></input>
+                    <div id="textTag">
+                        <textarea class="message" name="message" placeholder="Enter Your Message"
+                            spellcheck="false"></textarea>
+                    </div>
+                    <br>
+                    <label for="feedback-notify" class="labelad">Remind me about this event via SMS</label>
+                    <input type="checkbox" id="feedback-notify" name="notify">
+                    <input class="phone" type="text" id="feedback-phone" name="phone" placeholder="Phone number"></input>
+                    <button type="submit">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="../scripts/feedbackForm.js"></script>

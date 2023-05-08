@@ -1,9 +1,3 @@
-// ------------------- API's ----------------------
-
-const BaseUrl = "http://localhost:8080";
-const Default = `${BaseUrl}/services`;
-const ServiceGetData = `${Default}/`;
-
 const user_name = document.getElementById("user_name");
 const data = JSON.parse(localStorage.getItem("userdata")) || {};
 const logout_btn = document.getElementById("logout_btn");
@@ -17,7 +11,7 @@ if (data.name) {
 
 logout_btn.addEventListener("click", () => {
     localStorage.removeItem("userdata");
-    window.location.href = "../index.html";
+    window.location.reload();
 });
 /**
  * add event listener on multiple elements
@@ -105,57 +99,17 @@ window.addEventListener("scroll", revealElementOnScroll);
 
 window.addEventListener("load", revealElementOnScroll);
 
-const card_div = document.querySelector(".car-div");
+const feedbackButton = document.querySelector("#feedbackButton");
+feedbackButton.addEventListener("click", ()=>{
+    const inputData = document.querySelector("#inputEmail").value;
 
-async function getData() {
-    try {
-        let data = await fetch(ServiceGetData);
-        data = await data.json();
-        localStorage.setItem("allServices", JSON.stringify(data));
-        renderData(data);
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-getData();
-
-function getCard(data) {
-    let formatedData = data.map((ele, ind) => {
-        return `
-    <div id="${ele._id}" class="card-body-service">
-      <div class="images">
-        <img src=${ele.image} alt="">
-      </div>
-      <div class="description" >
-        <p class="heading">${ele.name.slice(0, 20)}<p>
-        <p class="desc">${ele.details.slice(0, 100)}...</p>
-        <a data-id="${ind}" class="bookservice">Book Services</a>
-      </div>
-    </div>
-        `;
-    });
-    return formatedData.join("");
-}
-
-async function renderData(product_data) {
-    let datadisplay = document.querySelector(".cards-div");
-    datadisplay.innerHTML = getCard(product_data);
-
-    // bookapointment button
-
-    let bookapointment = document.querySelectorAll(".bookservice");
-    for (let btn of bookapointment) {
-        btn.addEventListener("click", (event) => {
-            let product_id = event.target.getAttribute("data-id");
-            const selectedService = JSON.parse(
-                localStorage.getItem("allServices")
-            )[product_id];
-            localStorage.setItem(
-                "selectedService",
-                JSON.stringify(selectedService)
-            );
-            window.location.href = "../html/doctor.html";
+    if(inputData==""){
+        return Swal.fire({
+            icon: "info",
+            text: "Fill all fields.",
+            width: "27%",
         });
+    }else{
+        window.location.href ="../html/feedbackForm.html";
     }
-}
+})

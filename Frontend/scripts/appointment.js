@@ -1,5 +1,18 @@
+// ------------------- API's ----------------------
+
+const BaseUrl = "http://localhost:8080";
+const Default = `${BaseUrl}/appointments`;
+const AppointmenPostData = `${Default}/add`;
+
 const user_name = document.getElementById("user_name");
 const data = JSON.parse(localStorage.getItem("userdata")) || {};
+let doctor = JSON.parse(localStorage.getItem("selectedDoctor"));
+let service = JSON.parse(localStorage.getItem("selectedService"));
+
+const form = document.getElementById("booking_form");
+form.doctorName.value = doctor.name;
+form.service.value = service.name;
+
 const logout_btn = document.getElementById("logout_btn");
 if (data.name) {
     user_name.innerText = data.name;
@@ -11,8 +24,9 @@ if (data.name) {
 
 logout_btn.addEventListener("click", () => {
     localStorage.removeItem("userdata");
-    window.location.reload();
+    window.location.href = "../index.html";
 });
+
 /**
  * add event listener on multiple elements
  */
@@ -98,3 +112,54 @@ const revealElementOnScroll = function () {
 window.addEventListener("scroll", revealElementOnScroll);
 
 window.addEventListener("load", revealElementOnScroll);
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const data = {
+        name: form.name.value,
+        phone: form.phone.value,
+        email: form.email.value,
+        date: form.date.value,
+        time: form.time.value,
+        doctorName: form.doctorName.value,
+        service: form.service.value,
+    };
+    postData(data);
+});
+
+async function postData(el) {
+    let details = {
+        date: el.date,
+        time: el.time,
+        doctorID: doctor._id,
+        serviceID: service._id,
+        userID: data.userid,
+    };
+    const response = await fetch(AppointmenPostData, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(details),
+    });
+    const res = await response.json();
+    Swal.fire({
+        icon: "success",
+        title: "Your Appointment has been booked successfully",
+        text: "Please check your registred email",
+        timer: 2500,
+        imageAlt: "Custom image",
+    });
+    setTimeout(() => {
+        window.location.href = "../index.html";
+    }, 2500);
+}
+
+// congratulation js
+
+$(window).on("load", function () {
+    setTimeout(function () {
+        $(".done").addClass("drawn");
+    }, 1000);
+});
