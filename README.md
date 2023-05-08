@@ -105,10 +105,15 @@
 <br>
 
 # API Endpoints 
-----
-<br>
 
-<a href="https://dent-care-backend-aa29.onrender.com/api-docs">Swagger Api's</a>
+<h3>
+    <strong>
+      <a href="https://dent-care-backend-aa29.onrender.com/api-docs">Swagger Docs</a>
+    </strong>
+</h3>
+
+<br>
+<br>
 
 # Additional 
 - we can give home services
