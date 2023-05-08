@@ -114,7 +114,12 @@ async function getData() {
         localStorage.setItem("allServices", JSON.stringify(data));
         renderData(data);
     } catch (error) {
-        console.log(error);
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Bad Request 404",
+            width: "25%",
+        });
     }
 }
 
