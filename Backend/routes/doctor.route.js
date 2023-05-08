@@ -16,6 +16,8 @@ doctorRouter.patch('/update/:id', updateDoctor);
 
 doctorRouter.delete('/delete/:id', deleteDoctor);
 
+
+
 module.exports = { doctorRouter }  
 
 
