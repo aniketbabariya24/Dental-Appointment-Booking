@@ -45,8 +45,8 @@ body {
   margin-left: 10px;
 }
 /* Rendering box styles */
-#renderServices,
-#renderDoctors {
+#services,
+#doctors {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
@@ -72,8 +72,8 @@ body {
   /* width: 10%; */
 }
 /* Male and Stylists styles */
-#male,
-#stylists {
+#getServices,
+#getDoctors {
   cursor: pointer;
   position: relative;
   padding: 3px 9px;
@@ -85,10 +85,10 @@ body {
   text-align: center;
   margin-right: 15px;
 }
-#male:before,
-#male:after,
-#stylists:before,
-#stylists:after {
+#getServices:before,
+#getServices:after,
+#getDoctors:before,
+#getDoctors:after {
   content: " ";
   width: 10px;
   height: 10px;
@@ -96,33 +96,33 @@ body {
   border: 0px solid #fff;
   transition: all 1s;
 }
-#male:after,
-#stylists:after {
+#getServices:after,
+#getDoctors:after {
   top: -1px;
   left: -1px;
   border-top: 5px solid rgb(47, 128, 194);
   border-left: 5px solid rgb(47, 128, 194);
 }
-#male:before,
-#stylists:before {
+#getServices:before,
+#getDoctors:before {
   bottom: -1px;
   right: -1px;
   border-bottom: 5px solid rgb(47, 128, 194);
   border-right: 5px solid rgb(47, 128, 194);
 }
-/* Make the male and stylist buttons stand out more */
-#male:hover,
-#stylists:hover {
+/* Make the getServices and stylist buttons stand out more */
+#getServices:hover,
+#getDoctors:hover {
   border-top-right-radius: 0px;
   border-bottom-left-radius: 0px;
   background: linear-gradient(45deg, #00acb1, #7fd5d8);
   transition: 0.5s;
 }
 /* Increase the size of the plus icon when hovering over the buttons */
-#male:hover:before,
-#male:hover:after,
-#stylists:hover:before,
-#stylists:hover:after {
+#getServices:hover:before,
+#getServices:hover:after,
+#getDoctors:hover:before,
+#getDoctors:hover:after {
   width: 100%;
   height: 100%;
   transition: all 0.5s ease-in-out;
@@ -133,7 +133,7 @@ body {
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
   transition: all 0.5s ease-in-out;
 }
-/* Make the add male and add stylist buttons look more like buttons */
+/* Make the add getServices and add stylist buttons look more like buttons */
 #addmale,
 #addstylists {
   display: inline-block;

@@ -1,73 +1,65 @@
-// const BaseUrl = "https://nice-pink-antelope-gear.cyclic.app";
+const BaseUrl = "https://dent-care-backend-aa29.onrender.com";
 
-document.getElementById("renderServices").style.display = "none";
-document.getElementById("renderDoctors").style.display = "none";
+document.getElementById("services").style.display = "none";
+document.getElementById("doctors").style.display = "none";
 
-let services = document.getElementById("male");
-services.addEventListener("click", callMale);
+let services = document.getElementById("getServices");
+services.addEventListener("click", callServices);
 
-let stylists = document.getElementById("stylists");
-stylists.addEventListener("click", callStylists);
+let getDoctors = document.getElementById("getDoctors");
+getDoctors.addEventListener("click", callDoctors);
 
 // fetching logics are here
-async function callMale() {
+async function callServices() {
     try {
-        let response = await fetch(`${BaseUrl}/services/male`);
+        let response = await fetch(`${BaseUrl}/services`);
         let data = await response.json();
-        document.getElementById("renderServices").style.display = "grid";
-        document.getElementById("renderDoctors").style.display = "none";
+        document.getElementById("services").style.display = "grid";
+        document.getElementById("doctors").style.display = "none";
         document.getElementById("men").style.display = "block";
         document.getElementById("style").style.display = "none";
         document.getElementById("men").style.textAlign = "center";
         services.classList.toggle("active");
-        stylists.classList.remove("active");
+        getDoctors.classList.remove("active");
         console.log(data);
-        renderMale(data);
+        renderServices(data);
     } catch (error) {
         console.log(error);
     }
 }
 
-async function callStylists() {
+async function callDoctors() {
     try {
-        let response = await fetch(`${BaseUrl}/stylist/styler`);
+        let response = await fetch(`${BaseUrl}/doctors`);
         let data = await response.json();
-        document.getElementById("renderServices").style.display = "none";
-        document.getElementById("renderDoctors").style.display = "grid";
+        document.getElementById("services").style.display = "none";
+        document.getElementById("doctors").style.display = "grid";
         services.classList.remove("active");
         document.getElementById("men").style.display = "none";
         document.getElementById("style").style.display = "block";
         document.getElementById("style").style.textAlign = "center";
-        stylists.classList.toggle("active");
+        getDoctors.classList.toggle("active");
         console.log(data);
-        renderDoctors(data);
+        doctors(data);
     } catch (error) {
         console.log(error);
     }
 }
 
 //data rendering is done here
-function renderMale(data) {
+function renderServices(data) {
     data.forEach((item) => {
         let div = document.createElement("div");
         div.setAttribute("class", "card");
 
         let name = document.createElement("h1");
         name.innerText = item.name;
+
         let image = document.createElement("img");
         image.src = item.image;
 
-        let des = document.createElement("p");
-        des.innerText = item.description;
-
-        let category = document.createElement("h5");
-        category.innerText = "Category:" + " " + item.category;
-
-        let gender = document.createElement("p");
-        gender.innerText = item.gender;
-
-        let cost = document.createElement("h4");
-        cost.innerText = "Price:" + " " + item.price;
+        let details = document.createElement("h5");
+        details.innerText = item.details;
 
         let edit = document.createElement("button");
         edit.innerText = "Edit";
@@ -81,10 +73,9 @@ function renderMale(data) {
 
         edit.addEventListener("click", function () {
             const card = edit.parentNode;
-            const cardImage = card.querySelector("img").getAttribute("src");
-            const cardContent = card.querySelector("p").textContent;
-            const cardPrice = item.price;
             const cardTitle = card.querySelector("h1").textContent;
+            const cardImage = card.querySelector("img").getAttribute("src");
+            const cardContent = card.querySelector("h5").textContent;
 
             const modal = document.createElement("div");
             modal.classList.add("modal");
@@ -119,15 +110,6 @@ function renderMale(data) {
             textarea.value = cardContent;
             form.appendChild(textarea);
 
-            const priceLabel = document.createElement("label");
-            priceLabel.textContent = "Price:";
-            form.appendChild(priceLabel);
-
-            const priceInput = document.createElement("input");
-            priceInput.setAttribute("type", "text");
-            priceInput.setAttribute("value", cardPrice);
-            form.appendChild(priceInput);
-
             const saveButton = document.createElement("button");
             saveButton.textContent = "Save";
             form.appendChild(saveButton);
@@ -145,20 +127,16 @@ function renderMale(data) {
                 const formData = {
                     image: imageInput.value,
                     title: titleInput.value,
-                    price: priceInput.value,
                     content: textarea.value,
                 };
                 try {
-                    const response = await fetch(
-                        `${BaseUrl}/services/male/update/${id}`,
-                        {
-                            method: "PATCH",
-                            headers: {
-                                "Content-Type": "application/json",
-                            },
-                            body: JSON.stringify(formData),
-                        }
-                    );
+                    const response = await fetch(`${BaseUrl}/services/update/${id}`, {
+                        method: "PATCH",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(formData),
+                    });
                     if (!response.ok) {
                         throw new Error("Network response was not ok");
                     }
@@ -167,8 +145,7 @@ function renderMale(data) {
 
                     card.querySelector("img").setAttribute("src", formData.image);
                     card.querySelector("h1").textContent = formData.title;
-                    card.querySelector("p").textContent = formData.content;
-                    card.querySelector("h4").textContent = formData.price;
+                    card.querySelector("h5").textContent = formData.content;
 
                     modal.remove();
 
@@ -177,7 +154,6 @@ function renderMale(data) {
                     console.error("There was a problem with the PATCH request:", error);
                 }
             });
-
             closeButton.addEventListener("click", () => {
                 modal.remove();
             });
@@ -185,12 +161,9 @@ function renderMale(data) {
 
         del.addEventListener("click", async () => {
             try {
-                const response = await fetch(
-                    `${BaseUrl}/services/male/delete/${id}`,
-                    {
-                        method: "DELETE",
-                    }
-                );
+                const response = await fetch(`${BaseUrl}/services/delete/${id}`, {
+                    method: "DELETE",
+                });
                 if (!response.ok) {
                     throw new Error("Failed to delete service.");
                 }
@@ -203,21 +176,18 @@ function renderMale(data) {
                 console.error(error);
             }
         });
-
-        div.append(image, name, des, category, cost, gender, edit, del);
-        document.getElementById("renderServices").append(div);
+        div.append(image, name, details, edit, del);
+        document.getElementById("services").append(div);
     });
 }
 
-function renderDoctors(data) {
+function doctors(data) {
     data.forEach((item) => {
         let div = document.createElement("div");
         div.setAttribute("class", "card");
 
         let name = document.createElement("h1");
         name.innerText = item.name;
-        let email = document.createElement("p");
-        email.innerText = item.email;
 
         let imageContainer = document.createElement("div");
         imageContainer.setAttribute("class", "image-container");
@@ -225,8 +195,11 @@ function renderDoctors(data) {
         image.src = item.image;
         imageContainer.append(image);
 
-        let salary = document.createElement("h5");
-        salary.innerText = "Salary :" + item.salary;
+        let qualification = document.createElement("h5");
+        qualification.innerText = "Qualification :" + item.qualification;
+
+        let experience = document.createElement("h5");
+        experience.innerText = "Experience :" + item.experience;
 
         let edit = document.createElement("button");
         edit.innerText = "Edit";
@@ -240,10 +213,10 @@ function renderDoctors(data) {
 
         edit.addEventListener("click", function () {
             const card = edit.parentNode;
-            const cardImage = card.querySelector("img").getAttribute("src");
-            const cardSalary = item.salary;
-            const cardEmail = card.querySelector("p").textContent;
             const cardTitle = card.querySelector("h1").textContent;
+            const cardImage = card.querySelector("img").getAttribute("src");
+            const cardQualification = card.querySelector("h5").textContent;
+            const cardExperience = card.querySelector("h5").textContent;
 
             const modal = document.createElement("div");
             modal.classList.add("modal");
@@ -270,23 +243,23 @@ function renderDoctors(data) {
             titleInput.setAttribute("value", cardTitle);
             form.appendChild(titleInput);
 
-            const emailLabel = document.createElement("label");
-            emailLabel.textContent = "Email:";
-            form.appendChild(emailLabel);
+            const qualificationLabel = document.createElement("label");
+            qualificationLabel.textContent = "Qualification:";
+            form.appendChild(qualificationLabel);
 
-            const emailInput = document.createElement("input");
-            emailInput.setAttribute("type", "text");
-            emailInput.setAttribute("value", cardEmail);
-            form.appendChild(emailInput);
+            const qualificationInput = document.createElement("input");
+            qualificationInput.setAttribute("type", "text");
+            qualificationInput.setAttribute("value", cardQualification);
+            form.appendChild(qualificationInput);
 
-            const salaryLabel = document.createElement("label");
-            salaryLabel.textContent = "Salary:";
-            form.appendChild(salaryLabel);
+            const experienceLabel = document.createElement("label");
+            experienceLabel.textContent = "Experience:";
+            form.appendChild(experienceLabel);
 
-            const salaryInput = document.createElement("input");
-            salaryInput.setAttribute("type", "text");
-            salaryInput.setAttribute("value", cardSalary);
-            form.appendChild(salaryInput);
+            const experienceInput = document.createElement("input");
+            experienceInput.setAttribute("type", "text");
+            experienceInput.setAttribute("value", cardExperience);
+            form.appendChild(experienceInput);
 
             const saveButton = document.createElement("button");
             saveButton.textContent = "Save";
@@ -302,58 +275,47 @@ function renderDoctors(data) {
 
             saveButton.addEventListener("click", async (event) => {
                 event.preventDefault();
-
                 const formData = {
+                    title: titleInput.value,
                     image: imageInput.value,
-                    name: titleInput.value,
-                    salary: salaryInput.value,
-                    email: emailInput.value,
+                    qualification: qualificationInput.value,
+                    experience: experienceInput.value,
                 };
 
                 try {
-                    const response = await fetch(
-                        `${BaseUrl}/stylist/styler/update/${id}`,
-                        {
-                            method: "PATCH",
-                            headers: {
-                                "Content-Type": "application/json",
-                            },
-                            body: JSON.stringify(formData),
-                        }
-                    );
-
+                    const response = await fetch(`${BaseUrl}/doctors/update/${id}`, {
+                        method: "PATCH",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(formData),
+                    });
                     if (!response.ok) {
                         throw new Error("Network response was not ok");
                     }
-
                     const data = await response.json();
                     console.log(data); // log the response from the server
 
                     card.querySelector("img").setAttribute("src", formData.image);
                     card.querySelector("h1").textContent = formData.title;
-                    card.querySelector("h5").textContent = formData.salary;
-                    card.querySelector("p").textContent = formData.email;
+                    card.querySelector("h5").textContent = formData.qualification;
+                    card.querySelector("h5").textContent = formData.experience;
 
                     modal.remove();
-                    alert("Stylists data has been modified successfully");
+                    alert("Doctors data has been modified successfully");
                 } catch (error) {
                     console.error("There was a problem with the PATCH request:", error);
                 }
             });
-
             closeButton.addEventListener("click", () => {
                 modal.remove();
             });
         });
-
         del.addEventListener("click", async () => {
             try {
-                const response = await fetch(
-                    `${BaseUrl}/stylist/styler/delete/${id}`,
-                    {
-                        method: "DELETE",
-                    }
-                );
+                const response = await fetch(`${BaseUrl}/doctors/delete/${id}`, {
+                    method: "DELETE",
+                });
                 if (!response.ok) {
                     throw new Error("Failed to delete service.");
                 }
@@ -366,19 +328,18 @@ function renderDoctors(data) {
                 console.error(error);
             }
         });
-
-        div.append(imageContainer, name, email, salary, edit, del);
-        document.getElementById("renderDoctors").append(div);
+        div.append(imageContainer, name, qualification, experience, edit, del);
+        document.getElementById("doctors").append(div);
     });
 }
 
 // form logic
-const addMaleForm = document.querySelector("#addmale form");
-const addStylistsForm = document.querySelector("#addstylists form");
+const serviceForm = document.querySelector("#addmale form");
+const doctorsForm = document.querySelector("#addstylists form");
 
-addMaleForm.addEventListener("submit", async (e) => {
+serviceForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const formData = new FormData(addMaleForm);
+    const formData = new FormData(serviceForm);
     const obj = {};
     formData.forEach((value, key) => {
         obj[key] = value;
@@ -391,7 +352,7 @@ addMaleForm.addEventListener("submit", async (e) => {
     }
     console.log(obj);
 
-    const response = await fetch(`${BaseUrl}/services/male/addMaleService`, {
+    const response = await fetch(`${BaseUrl}/services/add`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -403,12 +364,12 @@ addMaleForm.addEventListener("submit", async (e) => {
     console.log(result);
 
     alert("Service added successfully");
-    addMaleForm.reset();
+    serviceForm.reset();
 });
 
-addStylistsForm.addEventListener("submit", async (e) => {
+doctorsForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const formData = new FormData(addStylistsForm);
+    const formData = new FormData(doctorsForm);
     const obj = {};
     formData.forEach((value, key) => {
         obj[key] = value;
@@ -421,21 +382,18 @@ addStylistsForm.addEventListener("submit", async (e) => {
     }
     console.log(obj);
 
-    const response = await fetch(
-        `${BaseUrl}/stylist/styler/addStylistService`,
-        {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(obj),
-        }
-    );
+    const response = await fetch(`${BaseUrl}/doctors/add`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(obj),
+    });
     const result = await response.json();
     console.log(result);
 
     alert("Doctors added successfully");
-    addStylistsForm.reset();
+    doctorsForm.reset();
 });
 
 // back to top button
