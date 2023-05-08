@@ -49,16 +49,6 @@ const AdminDataPost = async (Credentials) =>{
         (UserNames.value = ""), 
         (Passwords.value = ""),
 
-         Swal.fire({
-          title: 'Please Confirm ',
-          showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: 'Confirm',
-          confirmButton:true,
-          width:"24%"
-        }).then((result) => {
-          if (result.isConfirmed) {
             Swal.fire({
                 icon: 'success',
                 title:'Welcome Admin',
@@ -68,9 +58,7 @@ const AdminDataPost = async (Credentials) =>{
               if(value.isConfirmed) {
                 window.location.href = "../admin/admin.html"
               }
-           })            
-          }
-        })
+           });            
             
       }else{
 
