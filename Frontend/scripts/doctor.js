@@ -1,6 +1,6 @@
 // ------------------- API's ----------------------
 
-const BaseUrl = 'http://localhost:8080';
+const BaseUrl = 'https://dent-care-backend-aa29.onrender.com';
 const Default = `${BaseUrl}/doctors`;
 const DoctorsGetData = `${Default}/`;
 
