@@ -1,32 +1,151 @@
-*{
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    transition: 0.5s;
-
+/* * {
+	box-sizing: border-box;
+} */
+html,
+body {
+  margin: 0;
+  padding: 10px;
+  background-color: #36A9AE;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-body{
-    background-color: #c8e8e0;
+.bookservice{
+ text-decoration: none;
+ border: none;
+ background-color: #2A8387;
+ padding: 8px 20px;
+ color: white;
+ border-radius: 4px;
+ margin-top: 100px;
 }
 
-h3{
-    color: #2e937a;
+
+
+.services-main-div {
+  flex: 1;
+  /* border: 2px solid red; */
+}
+.heading {
+  font-size: 1.3rem;
+}
+.description {
+  /* border-radius: 0 0 10px 10px; */
+  padding: 20px 20px 30px 20px ;
+  background-color: #fff;
+  
 }
 
-.row{
-    padding-top: 50px;
-    width: 1000px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    justify-content:space-between ;
-    align-items: center;
-    gap: 30px;
+.images{
+  padding: 15px;
+  background-color: #fff;
+ 
 }
 
-.box{
-    background-color: #fff;
-    height: 500px;
-    
+.description h1,
+p {
+  color: rgb(15, 15, 15);
+}
+.bookservice .price {
+  font-size: 2.2rem;
+  color: rgb(0, 0, 0);
+}
+
+.button {
+  width: fit-content;
+  height: fit-content;
+  margin-top: 10px;
+}
+
+.button p {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  font-size: 13px;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 15px;
+  border: 1px solid #aaa;
+  font-weight: bold;
+}
+
+
+
+.button p:hover:after {
+  width: 150%;
+  left: -10px;
+  transform-origin: left;
+}
+
+.button p:hover {
+  color: #fff;
+  transition: all 0.5s ease;
+}
+
+.button p:nth-of-type(1) {
+  border-radius: 50px 0 0 50px;
+  border-right: none;
+}
+
+
+.cart-icon {
+  padding-right: 8px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.cards-div {
+  margin: auto;
+  width: 90%;
+  margin: 50px auto;
+  display: grid;
+  gap: 40px 40px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.card-body-service {
+  width: 100%;
+  margin: auto;
+  border-radius: 0px;
+  /* border: 2px solid black; */
+ /* padding: 10px 0px; */
+}
+
+
+.card-body-service img {
+  height: 230px;
+  width: 100%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+#footer-main > #footer {
+  margin-top: 0px;
+}
+
+#insta {
+  width: 35px;
+}
+.social-media > img {
+  width: 35px;
+}
+
+@media screen and (max-width: 768px) {
+  .cards-div {
+   
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+@media screen and (max-width: 468px) {
+  .cards-div {
+   
+    grid-template-columns: repeat(1, 1fr);
+  }
+  body {
+   padding: 0px;
+  }
 }
