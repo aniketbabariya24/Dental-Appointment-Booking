@@ -1,4 +1,5 @@
 const { AppointmentModel } = require("../models/appointment.model");
+const { sendEmail } = require("../services/mail");
 
 
 const getAppointment = async (req, res) => {
@@ -15,10 +16,24 @@ const getAppointment = async (req, res) => {
 const addAppointment=async (req,res)=>{
     const { date, time, doctorID, serviceID, userID} = req.body;
     try {
+
+        sendEmail({email:userID.email,subject:`Dental Service with ${doctorID.name} on ${date} at ${time}`,body:`Dear ${userID.name},<br>
+
+        Thank you for booking an appointment with our denist. This email is to confirm that your appointment with our experienced doctor, ${doctorID.name}, has been successfully scheduled for a ${serviceID.name} on ${date} at ${time}.<br>
+        
+        Please make sure to arrive on time for your appointment to ensure that we can provide you with the best possible service.<br>We kindly request that you notify us at least 24 hours in advance if you need to cancel or reschedule your appointment.<br>
+        
+        If you have any questions or concerns, please do not hesitate to contact us at dentcare247@gmail.com.<br>
+        
+        We look forward to seeing you soon!<br>
+        
+        Best regards,<br>
+        DENTCARE`});
+
         const appointment= new AppointmentModel({date,time, doctor:doctorID, service: serviceID, user: userID});
         await appointment.save();
 
-        res.status(200).send("Appointment Booked succesfully", appointment)
+        res.status(200).json("Appointment Booked succesfully", appointment)
     } catch (error) {
         res.status(400).json({ message: error.message });
     }

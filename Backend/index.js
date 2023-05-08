@@ -1,9 +1,13 @@
 const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
+const swaggerUI = require("swagger-ui-express");
+const swaggerJsDoc = require("swagger-jsdoc");
+
+
 const app = express();
 
-const fs= require('fs')
+
 
 require("dotenv").config();
 
@@ -28,6 +32,36 @@ const { feedbackRouter } = require("./routes/feedbackForm.route");
 app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
+
+
+
+
+const options = {
+	definition: {
+		openapi: "3.0.0",
+		info: {
+			title: "Dental Appointment System",
+			version: "1.0.0",
+			description: "A simple Express Library API",
+		},
+		servers: [
+			{
+				url: "http://localhost:8080",
+			},
+		],
+	},
+	apis: ["./routes/*.js"],
+};
+
+const specs = swaggerJsDoc(options);
+
+
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
+
+
+
+
+
 
 
 // --------------->>>>>>>> Default End Point <<<<<<<<-------------------

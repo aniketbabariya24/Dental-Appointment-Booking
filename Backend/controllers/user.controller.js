@@ -97,12 +97,10 @@ const login = async (req, res) => {
 
 const getalluser = async (req, res) => {
     try {
-        if (req.body.access_key === process.env.ACCESSKEY) {
+       
             const UserData = await UserModel.find();
             res.status(200).json({ UserData });
-        } else {
-            res.status(401).json({ error: "Access denied" });
-        }
+       
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
