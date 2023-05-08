@@ -41,7 +41,7 @@ const login = async (req, res) => {
         const UserData = await UserModel.findOne({ email });
 
         if (!UserData) {
-            res.status(404).json({ error: "User not found" });
+            return res.status(404).json({ error: "User not found" });
         }
 
         // hash password form UserData(db.users)
