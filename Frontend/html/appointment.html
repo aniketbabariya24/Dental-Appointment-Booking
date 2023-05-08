@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- 
+    - primary meta tags
+  -->
+        <title>DentCare - home</title>
+
+        <!-- 
+    - favicon
+  -->
+        <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" />
+
+        <!-- 
+    - google font link
+  -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Rubik:wght@400;500;700&display=swap"
+            rel="stylesheet"
+        />
+        <script
+            src="https://kit.fontawesome.com/2a66bc2625.js"
+            crossorigin="anonymous"
+            ;
+        ></script>
+
+        <!-- 
+    - custom css link
+  -->
+        <link rel="stylesheet" href="../styles/appointment.css" />
+    </head>
+
+    <body id="top">
+        <!-- 
+    - #PRELOADER
+  -->
+
+        <div class="preloader" data-preloader>
+            <div class="circle"></div>
+        </div>
+
+        <!-- 
+    - #HEADER
+  -->
+
+        <header class="header" data-header>
+            <div class="container">
+                <a href="#" class="logo a_tag">
+                    <img
+                        class="img_tag"
+                        src="../images/logo.png"
+                        width="200"
+                        height="40"
+                        alt="Doclab home"
+                    />
+                </a>
+
+                <nav class="navbar" data-navbar>
+                    <div class="navbar-top">
+                        <a href="#" class="logo a_tag">
+                            <img
+                                class="img_tag"
+                                src="../images/logo.png"
+                                width="136"
+                                height="46"
+                                alt="Doclab home"
+                            />
+                        </a>
+
+                        <button
+                            class="nav-close-btn button_tag"
+                            aria-label="clsoe menu"
+                            data-nav-toggler
+                        >
+                            <ion-icon
+                                name="close-outline"
+                                aria-hidden="true"
+                            ></ion-icon>
+                        </button>
+                    </div>
+
+                    <ul class="navbar-list">
+                        <li class="navbar-item">
+                            <a
+                                href="../index.html"
+                                class="navbar-link title-md a_tag"
+                                >Home</a
+                            >
+                        </li>
+
+                        <li class="navbar-item">
+                            <a
+                                href="../html/service.html"
+                                class="navbar-link title-md a_tag"
+                                >Services</a
+                            >
+                        </li>
+
+                        <li class="navbar-item">
+                            <a
+                                id="user_name"
+                                href="../index.html"
+                                class="navbar-link title-md a_tag"
+                                >Login</a
+                            >
+                        </li>
+                        <li class="navbar-item">
+                            <a
+                                href="../admin/adminLogin.html"
+                                class="navbar-link title-md a_tag"
+                                >Admin</a
+                            >
+                        </li>
+                        <li
+                            style="display: none"
+                            id="logout_btn"
+                            class="navbar-item"
+                        >
+                            <a href="#" class="navbar-link title-md a_tag">
+                                <i
+                                    class="fa-solid fa-right-from-bracket"
+                                    style="font-size: 15px"
+                                    >&nbsp;Logout</i
+                                >
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <button
+                    class="nav-open-btn button_tag"
+                    aria-label="open menu"
+                    data-nav-toggler
+                >
+                    <ion-icon name="menu-outline"></ion-icon>
+                </button>
+
+                <div class="overlay" data-nav-toggler data-overlay></div>
+            </div>
+        </header>
+
+        <main>
+            <article>
+                <!-- 
+        - #HERO
+      -->
+
+                <section class="section hero" aria-label="home"></section>
+            </article>
+        </main>
+
+        <div>
+            <h1 style="text-align: center; margin-top: 30px">
+                BOOK APPOINTMENT
+            </h1>
+
+            <div class="formbold-main-wrapper">
+                <div class="formbold-form-wrapper">
+                    <form action="" id="booking_form">
+                        <div class="formbold-mb-5">
+                            <label for="name" class="formbold-form-label">
+                                Full Name
+                            </label>
+                            <input
+                                type="text"
+                                name="name"
+                                required
+                                id="name"
+                                placeholder="Full Name"
+                                class="formbold-form-input"
+                            />
+                        </div>
+                        <div class="formbold-mb-5">
+                            <label for="phone" class="formbold-form-label">
+                                Phone Number
+                            </label>
+                            <input
+                                type="text"
+                                name="phone"
+                                required
+                                id="phone"
+                                placeholder="Enter your phone number"
+                                class="formbold-form-input"
+                            />
+                        </div>
+                        <div class="formbold-mb-5">
+                            <label for="email" class="formbold-form-label">
+                                Email Address
+                            </label>
+                            <input
+                                type="email"
+                                name="email"
+                                id="email"
+                                required
+                                placeholder="Enter your email"
+                                class="formbold-form-input"
+                            />
+                        </div>
+                        <div class="flex flex-wrap formbold--mx-3">
+                            <div class="w-full sm:w-half formbold-px-3">
+                                <div class="formbold-mb-5 w-full">
+                                    <label
+                                        for="date"
+                                        class="formbold-form-label"
+                                    >
+                                        Date
+                                    </label>
+                                    <input
+                                        type="date"
+                                        name="date"
+                                        required
+                                        id="date"
+                                        class="formbold-form-input"
+                                    />
+                                </div>
+                            </div>
+                            <div class="w-full sm:w-half formbold-px-3">
+                                <div class="formbold-mb-5">
+                                    <label
+                                        for="time"
+                                        class="formbold-form-label"
+                                    >
+                                        Time
+                                    </label>
+                                    <input
+                                        type="time"
+                                        name="time"
+                                        required
+                                        id="time"
+                                        class="formbold-form-input"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap formbold--mx-3">
+                            <div class="w-full sm:w-half formbold-px-3">
+                                <div class="formbold-mb-5 w-full">
+                                    <label
+                                        for="doctorName"
+                                        class="formbold-form-label"
+                                    >
+                                        Doctor
+                                    </label>
+                                    <input
+                                        type="input"
+                                        name="doctorName"
+                                        id="doctorName"
+                                        disabled
+                                        value=""
+                                        class="formbold-form-input"
+                                        style="cursor: not-allowed"
+                                    />
+                                </div>
+                            </div>
+                            <div class="w-full sm:w-half formbold-px-3">
+                                <div class="formbold-mb-5">
+                                    <label
+                                        for="service"
+                                        class="formbold-form-label"
+                                    >
+                                        Service
+                                    </label>
+                                    <input
+                                        type="input"
+                                        name="service"
+                                        id="service"
+                                        disabled
+                                        value=""
+                                        style="cursor: not-allowed"
+                                        class="formbold-form-input"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="formbold-btn">
+                                Book Appointment
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- 
+    - #FOOTER
+  -->
+
+        <footer class="footer">
+            <div class="container">
+                <div class="section footer-top">
+                    <div class="footer-brand" data-reveal="bottom">
+                        <a href="#" class="logo a_tag">
+                            <h2>
+                                <span
+                                    ><i class="fa-solid fa-tooth span_tag"
+                                        >&nbspDentcare</i
+                                    ></span
+                                >
+                            </h2>
+                        </a>
+
+                        <ul class="contact-list has-after">
+                            <li class="contact-item">
+                                <div class="item-icon">
+                                    <ion-icon
+                                        name="mail-open-outline"
+                                    ></ion-icon>
+                                </div>
+
+                                <div>
+                                    <p>
+                                        Main Email :
+                                        <a
+                                            href="mailto:contact@website.com"
+                                            class="contact-link a_tag"
+                                            >contact@dentcare.com</a
+                                        >
+                                    </p>
+
+                                    <p>
+                                        Inquiries :
+                                        <a
+                                            href="mailto:Info@mail.com"
+                                            class="contact-link a_tag"
+                                            >info@dentcare.com</a
+                                        >
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li class="contact-item">
+                                <div class="item-icon">
+                                    <ion-icon name="call-outline"></ion-icon>
+                                </div>
+
+                                <div>
+                                    <p>
+                                        Office Telephone :
+                                        <a
+                                            href="tel:0029129102320"
+                                            class="contact-link a_tag"
+                                            >0135-24863976</a
+                                        >
+                                    </p>
+
+                                    <p>
+                                        Mobile :
+                                        <a
+                                            href="tel:000232439493"
+                                            class="contact-link a_tag"
+                                            >7900139615</a
+                                        >
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-list" data-reveal="bottom">
+                        <p class="headline-sm footer-list-title">About Us</p>
+
+                        <p class="text">
+                            Dentcare is on a mission to make quality healthcare
+                            affordable and accessible for over a billion+
+                            Indians. We believe in empowering our users with the
+                            most accurate, comprehensive, and curated
+                            information and care.
+                        </p>
+
+                        <address class="address">
+                            <ion-icon name="map-outline"></ion-icon>
+
+                            <span class="text span_tag">
+                                INA <br />
+                                New Delhi,110023
+                            </span>
+                        </address>
+                    </div>
+
+                    <ul class="footer-list" data-reveal="bottom">
+                        <li>
+                            <p class="headline-sm footer-list-title">
+                                Services
+                            </p>
+                        </li>
+
+                        <li>
+                            <a href="#" class="text footer-link a_tag"
+                                >Conditions</a
+                            >
+                        </li>
+
+                        <li>
+                            <a href="#" class="text footer-link a_tag"
+                                >Listing</a
+                            >
+                        </li>
+
+                        <li>
+                            <a href="#" class="text footer-link a_tag"
+                                >How It Works</a
+                            >
+                        </li>
+
+                        <li>
+                            <a href="#" class="text footer-link a_tag"
+                                >What We Offer</a
+                            >
+                        </li>
+
+                        <li>
+                            <a href="#" class="text footer-link a_tag"
+                                >Latest News</a
+                            >
+                        </li>
+
+                        <li>
+                            <a href="#" class="text footer-link a_tag"
+                                >Contact Us</a
+                            >
+                        </li>
+                    </ul>
+
+                    <ul class="footer-list" data-reveal="bottom">
+                        <li>
+                            <p class="headline-sm footer-list-title">
+                                Useful Links
+                            </p>
+                        </li>
+
+                        <li>
+                            <a href="#" class="text footer-link a_tag"
+                                >Conditions</a
+                            >
+                        </li>
+
+                        <li>
+                            <a href="#" class="text footer-link a_tag"
+                                >Terms of Use</a
+                            >
+                        </li>
+
+                        <li>
+                            <a href="#" class="text footer-link a_tag"
+                                >Our Services</a
+                            >
+                        </li>
+
+                        <li>
+                            <a href="#" class="text footer-link a_tag"
+                                >Join as a Doctor</a
+                            >
+                        </li>
+
+                        <li>
+                            <a href="#" class="text footer-link a_tag"
+                                >New Guests List</a
+                            >
+                        </li>
+
+                        <li>
+                            <a href="#" class="text footer-link a_tag"
+                                >The Team List</a
+                            >
+                        </li>
+                    </ul>
+
+                    <div class="footer-list" data-reveal="bottom">
+                        <p class="headline-sm footer-list-title">Subscribe</p>
+
+                        <form action="" class="footer-form">
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="Email"
+                                class="input-field title-lg"
+                            />
+
+                            <button
+                                type="submit"
+                                class="btn has-before title-md button_tag"
+                            >
+                                Subscribe
+                            </button>
+                        </form>
+
+                        <p class="text">
+                            Get the latest updates via email. Any time you may
+                            unsubscribe
+                        </p>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p class="text copyright">
+                        &copy; Dentcare 2023 | All Rights Reserved
+                    </p>
+
+                    <ul class="social-list">
+                        <li>
+                            <a href="#" class="social-link a_tag">
+                                <ion-icon name="logo-facebook"></ion-icon>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="social-link a_tag">
+                                <ion-icon name="logo-twitter"></ion-icon>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="social-link a_tag">
+                                <ion-icon name="logo-google"></ion-icon>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="social-link a_tag">
+                                <ion-icon name="logo-linkedin"></ion-icon>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="social-link a_tag">
+                                <ion-icon name="logo-pinterest"></ion-icon>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+        <div id="congratulationDiv"></div>
+        <!-- 
+    - #BACK TO TOP
+  -->
+
+        <a
+            href="#top"
+            class="back-top-btn"
+            aria-label="back to top"
+            data-back-top-btn
+        >
+            <ion-icon name="chevron-up"></ion-icon>
+        </a>
+
+        <!-- 
+    - custom js link
+  -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
+        <script src="../scripts/appointment.js"></script>
+
+        <!-- 
+    - ionicon link
+  -->
+        <script
+            type="module"
+            src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+        ></script>
+        <script
+            nomodule
+            src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+        ></script>
+    </body>
+</html>

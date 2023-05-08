@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Dentcare</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+        />
+        <link
+            href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css"
+            rel="stylesheet"
+        />
+        <script
+            src="https://kit.fontawesome.com/2a66bc2625.js"
+            crossorigin="anonymous"
+            ;
+        ></script>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Rubik:wght@400;500;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../styles/login.css" />
+    </head>
+
+    <body>
+        <!-- 
+    - #NAVBAR
+  -->
+
+        <!-- HTML !-->
+        <a href="../index.html"
+            ><button class="button-25" role="button">HOME</button></a
+        >
+
+        <!-- main section
+         -->
+        <div class="outer_div">
+            <div class="container" id="container">
+                <div class="form-container sign-up-container">
+                    <form id="signUpForm">
+                        <h1 class="title_h1">Create Account</h1>
+                        <span id="email_span"
+                            >Use your email for registration</span
+                        >
+                        <input
+                            type="text"
+                            id="signUpName"
+                            name="name"
+                            placeholder="Name"
+                            required
+                        />
+                        <input
+                            type="email"
+                            id="signUpEmail"
+                            name="email"
+                            placeholder="Email"
+                            required
+                        />
+                        <input
+                            type="password"
+                            name="password"
+                            id="signUpPassword"
+                            placeholder="Password"
+                            required
+                        />
+                        <button>Sign Up</button>
+                    </form>
+                </div>
+                <div class="form-container sign-in-container">
+                    <form id="loginForm">
+                        <h1 class="title_h1" style="margin-bottom: 10px">
+                            Sign in
+                        </h1>
+                        <input
+                            type="email"
+                            name="email"
+                            id="loginEmail"
+                            placeholder="Email"
+                            required
+                        />
+                        <input
+                            type="password"
+                            name="password"
+                            id="loginPassword"
+                            placeholder="Password"
+                            required
+                        />
+                        <a id="anchor_tag" href="#">Forgot your password?</a>
+                        <button>Sign In</button>
+                    </form>
+                </div>
+                <div class="overlay-container">
+                    <div class="overlay">
+                        <div class="overlay-panel overlay-left">
+                            <h1 class="title_h1">Welcome Back!</h1>
+                            <p class="p_tag">
+                                To keep connected with us please login with your
+                                personal info
+                            </p>
+                            <button class="ghost" id="signIn">Sign In</button>
+                        </div>
+                        <div class="overlay-panel overlay-right">
+                            <h1 class="title_h1">Hello, Friend!</h1>
+                            <p class="p_tag">
+                                Enter your personal details and start journey
+                                with us
+                            </p>
+                            <button class="ghost" id="signUp">Sign Up</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 
+    - #FOOTER
+  -->
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
+        <script src="../scripts/login.js"></script>
+    </body>
+</html>
