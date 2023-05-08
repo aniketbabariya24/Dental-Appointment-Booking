@@ -1,11 +1,18 @@
 // ------------------- API's ----------------------
 
 const BaseUrl = "http://localhost:8080";
-const Default = `${BaseUrl}/services`;
-const ServiceGetData = `${Default}/`;
+const Default = `${BaseUrl}/appointments`;
+const AppointmenPostData = `${Default}/add`;
 
 const user_name = document.getElementById("user_name");
 const data = JSON.parse(localStorage.getItem("userdata")) || {};
+let doctor = JSON.parse(localStorage.getItem("selectedDoctor"));
+let service = JSON.parse(localStorage.getItem("selectedService"));
+
+const form = document.getElementById("booking_form");
+form.doctorName.value = doctor.name;
+form.service.value = service.name;
+
 const logout_btn = document.getElementById("logout_btn");
 if (data.name) {
     user_name.innerText = data.name;
@@ -19,6 +26,7 @@ logout_btn.addEventListener("click", () => {
     localStorage.removeItem("userdata");
     window.location.href = "../index.html";
 });
+
 /**
  * add event listener on multiple elements
  */
@@ -105,57 +113,53 @@ window.addEventListener("scroll", revealElementOnScroll);
 
 window.addEventListener("load", revealElementOnScroll);
 
-const card_div = document.querySelector(".car-div");
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-async function getData() {
-    try {
-        let data = await fetch(ServiceGetData);
-        data = await data.json();
-        localStorage.setItem("allServices", JSON.stringify(data));
-        renderData(data);
-    } catch (error) {
-        console.log(error);
-    }
-}
+    const data = {
+        name: form.name.value,
+        phone: form.phone.value,
+        email: form.email.value,
+        date: form.date.value,
+        time: form.time.value,
+        doctorName: form.doctorName.value,
+        service: form.service.value,
+    };
+    postData(data);
+});
 
-getData();
-
-function getCard(data) {
-    let formatedData = data.map((ele, ind) => {
-        return `
-    <div id="${ele._id}" class="card-body-service">
-      <div class="images">
-        <img src=${ele.image} alt="">
-      </div>
-      <div class="description" >
-        <p class="heading">${ele.name.slice(0, 20)}<p>
-        <p class="desc">${ele.details.slice(0, 100)}...</p>
-        <a data-id="${ind}" class="bookservice">Book Services</a>
-      </div>
-    </div>
-        `;
+async function postData(el) {
+    let details = {
+        date: el.date,
+        time: el.time,
+        doctorID: doctor._id,
+        serviceID: service._id,
+        userID: data.userid,
+    };
+    const response = await fetch(AppointmenPostData, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(details),
     });
-    return formatedData.join("");
+    const res = await response.json();
+    Swal.fire({
+        icon: "success",
+        title: "Your Appointment has been booked successfully",
+        text: "Please check your registred email",
+        timer: 2500,
+        imageAlt: "Custom image",
+    });
+    setTimeout(() => {
+        window.location.href = "../index.html";
+    }, 2500);
 }
 
-async function renderData(product_data) {
-    let datadisplay = document.querySelector(".cards-div");
-    datadisplay.innerHTML = getCard(product_data);
+// congratulation js
 
-    // bookapointment button
-
-    let bookapointment = document.querySelectorAll(".bookservice");
-    for (let btn of bookapointment) {
-        btn.addEventListener("click", (event) => {
-            let product_id = event.target.getAttribute("data-id");
-            const selectedService = JSON.parse(
-                localStorage.getItem("allServices")
-            )[product_id];
-            localStorage.setItem(
-                "selectedService",
-                JSON.stringify(selectedService)
-            );
-            window.location.href = "../html/doctor.html";
-        });
-    }
-}
+$(window).on("load", function () {
+    setTimeout(function () {
+        $(".done").addClass("drawn");
+    }, 1000);
+});
