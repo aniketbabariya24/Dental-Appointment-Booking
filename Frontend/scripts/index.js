@@ -10,8 +10,23 @@ if (data.name) {
 }
 
 logout_btn.addEventListener("click", () => {
-    localStorage.removeItem("userdata");
-    window.location.reload();
+    Swal.fire({
+        title: "Are you sure?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Logout!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+            localStorage.removeItem("userdata");
+          Swal.fire("Logout Successfull!").then((res) => {
+            if (res) {
+              window.location.reload();
+            }
+          });
+        }
+      });
 });
 /**
  * add event listener on multiple elements
