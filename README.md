@@ -14,7 +14,7 @@
 ## Deployed Link :
 
    - Frontend: https://dentcare24x7.netlify.app/
-   - Backend: "https://dent-care-backend-aa29.onrender.com"
+   - Backend: https://dent-care-backend-aa29.onrender.com
 
 
 <br>
