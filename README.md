@@ -1,13 +1,14 @@
+<h1 align="center"><b>Dental Booking Appointment System</b></h1>
 
-## Project Code :  
-   ```
-    tough-health-8180
-   ```
+<br>
 
-## Project Name : 
-   ```
-   DENTCARE
-   ```
+<img style="display:block; margin:auto; " src="https://dent-cares.netlify.app/images/logo.png" width="200px" alt="Error 404">
+
+<br>
+<br>
+
+## Project Code : `tough-health-8180`
+## Project Name : `DENTCARE`
 
 <br>
 
@@ -19,7 +20,7 @@
 
 <br>
 
-# What are the requirements ?
+# Requirements : 
 
 - User can login and sign up
     - OTP will be sent by nodmailer
@@ -33,31 +34,34 @@
     - User can book the appointment for someone else.
     - User can give feedback on appointment
     - User can see account details / update them / get previous appointment  
-    - User will be notified confirmationi email 
-- Real time chat support
+    - User will be notified confirmationi email
 - Feedback 
 - Logout 
 
-
+<br>
 
 # Tech stack 
 
 ### Frontend 
 
-- Bootstrap / HTML / CSS / JavaScript / React 
+- HTML
+- CSS
+- JavaScript
 
 ### Backend 
- 
-- NodeJS 
-- ExpressJS
 
-- Database : MongoDB 
+- Node.js 
+- Express.js
+
+### Database
+
+- MongoDB 
 
 
 
 # Schema : 
 
-- user 
+- User 
      - name
      - email
      - password
@@ -74,9 +78,7 @@
      - salary
      - image
 
-
-
-- services 
+- Services 
     - service_name 
     - service_image
     - service_price
@@ -100,15 +102,13 @@
     - service_des,
     - styler_name
 
-
-## 
 <br>
 
-# API Endpoints 
+# API EndPoints 
 
 <h3>
     <strong>
-      <a href="https://dent-care-backend-aa29.onrender.com/api-docs">Swagger Docs</a>
+      <a href="https://dent-care-backend-aa29.onrender.com/api-docs" target="_blank">Swagger Docs for Api</a>
     </strong>
 </h3>
 
@@ -116,35 +116,35 @@
 <br>
 
 # Additional 
-- we can give home services
+- We can give home services
 
 <br>
 
-<h1>HomePage</h1>
+<h2>HomePage</h2>
 <img src="https://github.com/aniketbabariya24/tough-health-8180/assets/112626195/e8d835dc-e346-41f9-9e29-e9d448fc39d7" alt="">
 
 <br>
 
-<h1>LogIn / Sign up page</h1>
+<h2>Sign In / Sign Up page</h2>
 <img src="https://github.com/aniketbabariya24/tough-health-8180/assets/112626195/d6d4a31a-0287-413e-b3e5-825c9ba4c477" alt="">
 
 <br>
 
-<h1>Service Page</h1>
+<h2>Service Page</h2>
 <img src="https://github.com/aniketbabariya24/tough-health-8180/assets/112626195/202ad3b2-8f87-4f60-8c06-1b1ede6c5748" alt="">
 
 <br>
 
-<h1>Doctors Page</h1>
+<h2>Doctors Page</h2>
 <img src="https://github.com/aniketbabariya24/tough-health-8180/assets/112626195/ec4b0cfd-a109-4fd5-b01b-f7f2adff2d7f" alt="">
 
 <br>
 
-<h1>Appoinment Book Page</h1>
+<h2>Appoinment Book Page</h2>
 <img src="https://github.com/aniketbabariya24/tough-health-8180/assets/112626195/6dcca0dd-bf38-4db5-a7c3-7eeb11097ec4" alt="">
 
 <br>
 
-<h1>Admin Page</h1>
+<h2>Admin Page</h2>
 <img src="https://github.com/aniketbabariya24/tough-health-8180/assets/112626195/c7f9683e-e933-467b-b792-02007a1154bb" alt="">
 
