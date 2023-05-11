@@ -45,7 +45,12 @@
 
 <br>
 
-# Tech stack 
+# Additional Requirements :
+- We can give home services
+
+<br>
+
+# Tech stack :
 
 ### Frontend 
 
@@ -61,7 +66,6 @@
 ### Database
 
 - MongoDB 
-
 
 
 # Schema : 
@@ -109,19 +113,13 @@
 
 <br>
 
-# API EndPoints 
+# API EndPoints :
 
 <h3>
     <strong>
       <a href="https://dent-care-backend-aa29.onrender.com/api-docs" target="_blank">Swagger Docs for Api</a>
     </strong>
 </h3>
-
-<br>
-<br>
-
-# Additional 
-- We can give home services
 
 <br>
 
