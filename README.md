@@ -1,4 +1,4 @@
-<h1 align="center"><b>Dental Booking Appointment System</b></h1>
+<h1 align="center" style="color:blue"><b>Dental Booking Appointment System</b></h1>
 
 <br>
 
