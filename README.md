@@ -5,7 +5,6 @@
 <img style="display:block; margin:auto; " src="https://dent-cares.netlify.app/images/logo.png" width="200px" alt="Error 404">
 
 <br>
-<br>
 
 ## Project Code : `tough-health-8180`
 ## Project Name : `DENTCARE`
