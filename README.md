@@ -11,6 +11,12 @@
 
 <br>
 
+# About:
+
+```This is a Dental Booking OR Appointment Booking System with Login, Sign up functionality and also having service page, doctors page, appointment booking page.```
+
+<br>
+
 ## Deployed Link :
 
    - Frontend: https://dentcare24x7.netlify.app/
