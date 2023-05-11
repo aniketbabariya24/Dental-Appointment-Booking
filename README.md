@@ -13,7 +13,7 @@
 
 # About:
 
-```This is a Dental Booking OR Appointment Booking System with Login, Sign up functionality and also having service page, doctors page, appointment booking page.```
+<b>This is a Dental Booking Appointment Booking System with Login, Sign up functionality and also having service page, doctors page, appointment booking page and there are doctors who are very experienced.</b>
 
 <br>
 
