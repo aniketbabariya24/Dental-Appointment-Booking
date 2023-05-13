@@ -121,7 +121,7 @@
 <br>
 
 <h1>Schema Design</h1>
-<img src="blob:https://web.whatsapp.com/6ec41c44-cada-4bed-8b8c-cf7e3cc309ed" alt="">
+<img src="https://github.com/aniketbabariya24/tough-health-8180/assets/112626195/48fdf084-ed10-4153-82ff-e0aca749bf6f" alt="">
 
 <br>
 
