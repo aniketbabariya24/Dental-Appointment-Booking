@@ -130,11 +130,6 @@
 Clone the project
 
 ```bash
-  git clone ## Run Locally
-
-Clone the project
-
-```bash
   git clone https://github.com/aniketbabariya24/tough-health-8180.git
 ```
 
