@@ -115,10 +115,7 @@
 
 <br>
 
-<h1>System Design(HLD)</h1>
-<img src="https://github.com/aniketbabariya24/tough-health-8180/assets/112626195/ce8e5a9f-a19b-439f-89e4-e587634c8e36" alt="">
 
-<br>
 
 <h1>Schema Design</h1>
 <img src="https://github.com/aniketbabariya24/tough-health-8180/assets/112626195/48fdf084-ed10-4153-82ff-e0aca749bf6f" alt="">
