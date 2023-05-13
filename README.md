@@ -115,6 +115,16 @@
 
 <br>
 
+<h1>System Design(HLD)</h1>
+<img src="https://github.com/aniketbabariya24/tough-health-8180/assets/112626195/ce8e5a9f-a19b-439f-89e4-e587634c8e36" alt="">
+
+<br>
+
+<h1>Schema Design</h1>
+<img src="blob:https://web.whatsapp.com/6ec41c44-cada-4bed-8b8c-cf7e3cc309ed" alt="">
+
+<br>
+
 # API EndPoints :
 
 <h3>
