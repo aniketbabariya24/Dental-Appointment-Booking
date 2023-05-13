@@ -125,6 +125,39 @@
 
 <br>
 
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone ## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/aniketbabariya24/tough-health-8180.git
+```
+
+Go to the project directory
+
+```bash
+  cd Backend
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run start
+```
+------------
+<br>
+
 <h2>HomePage</h2>
 <img src="https://github.com/aniketbabariya24/tough-health-8180/assets/112626195/e8d835dc-e346-41f9-9e29-e9d448fc39d7" alt="">
 
